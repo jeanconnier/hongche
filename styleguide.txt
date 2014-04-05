@@ -1,0 +1,16 @@
+Coding conventions/style:
+
+Indentation
+   3 spaces <=> one level of indentation
+   
+   function() {
+     ...
+   }
+   
+Naming
+   class names begin with an uppercase letter (a-z) : "User"
+   attribute names begin with an underscore : "_name"
+   method names begin with a lowercase letter and every first letter of a new word inside is uppercase : "doThatThing()" 
+   
+
+  
