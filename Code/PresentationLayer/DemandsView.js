@@ -1,4 +1,4 @@
-/* DemandsPage class file */
+/* DemandsView class file */
 
 /* Class declaration */
 function DemandsView() {

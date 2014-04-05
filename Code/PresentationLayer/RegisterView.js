@@ -1,4 +1,4 @@
-/* RegisterPage class file */
+/* RegisterView class file */
 
 function RegisterView() {
    /* Properties - PRIVATE */

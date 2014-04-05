@@ -1,4 +1,4 @@
-/* PersonalPage class file */
+/* PersonalView class file */
 
 function PersonalView() {
    /* Properties - PRIVATE */
