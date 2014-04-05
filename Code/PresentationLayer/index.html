@@ -8,5 +8,80 @@
 	</head>
 	
 	<body>
+   
+   <div id="MenuBar">
+      <span class="MenuElement">Customize</span>
+      <span class="MenuElement">Demands</span>
+      <span class="MenuElement">Personal</span>
+   </div>
+   
+   <div id="TitleBar">
+      <h4>HongChe</h4>
+   </div>
+   
+   <div id="LoginWidget">
+      <div id="LoginWidgetUnauthentifiedUser">
+         Login:
+         <form action="">
+            <label>User ID</label>
+            <input type="text" name="LoginWidgetUserId"/>
+            <label>Password</label>
+            <input type="password" name="LoginWidgetPassword"/>
+            <span class="Button" id="ConnectButton">Connect</span>
+         </form>
+      </div>
+      <div id="LoginWidgetAuthentifiedUser">
+      Welcome, <span id="UserID"></span>.
+      <span class="Button" id="DisconnectButton">Disconnect</span>
+      <span class="Button" id="PersonalSpaceButton">Your personal space</span>
+      </div>
+   </div>
+   
+   <div class="View" id="CustomizeView">
+      Options:
+      <form action="">
+         <label>Colour</label>
+         <select name="CustomizeViewColour">
+            <option value="white">white</option>
+            <option value="grey">grey</option>
+         </select>
+         <label>Type</label>
+         <select name="CustomizeViewType">
+            <option value="Peugeot 206">Peugeot 206</option>
+            <option value="Citroen BX">Citroen BX</option>
+         </select>
+      </form>
+      <span class="Button" id="MakeADemandButton">Make a demand</span>
+   </div>
+   
+   <div class="View" id="RegisterView">
+      Welcome, future new user! Please fill out this form.
+      <form action="">
+         <label>User identifier (login name)</label>
+         <input type="text" name="RegisterViewIdentifier" />
+         <label>Real name</label>
+         <input type="text" name="RegisterViewLogin" />
+         <label>Password</label>
+         <input type="password" name="RegisterViewPassword" />
+      </form>
+   </div>
+   
+   <div class="View" id="DemandsView">
+      <li id="DemandsViewList">
+      </li>
+   </div>
+   
+   <div class="View" id="PersonalView">
+      <div id="PersonalViewOffersBlock">
+         <li id="PersonalViewOffersList">
+         </li>
+      </div>
+      <div id="PersonalViewDemandsBlock">
+         <li id="PersonalViewDemandsList">
+         </li>
+      </div>
+   </div>
+   
+   
 	</body>
 </html>
