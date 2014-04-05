@@ -9,6 +9,8 @@ function StringChecker() {
 
 
 /* Methods - prototype*/
-
+StringChecker.prototype.check = function() {
+   
+}
 
 /* Getters & setters */

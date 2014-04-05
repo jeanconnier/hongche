@@ -1,7 +1,8 @@
 /* RegisterPage class file */
 
-function RegisterPage() {
-
+function RegisterView() {
+   /* Properties - PRIVATE */
+   
 }
 
 
@@ -9,6 +10,16 @@ function RegisterPage() {
 
 
 /* Methods - prototype*/
+RegisterView.prototype.display = function() {
+   
+}
 
+RegisterView.prototype.hashPassword() {
+   
+}
+
+RegisterView.prototype.registerUser() {
+   
+}
 
 /* Getters & setters */

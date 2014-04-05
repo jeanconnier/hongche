@@ -1,7 +1,7 @@
 /* LoginWidget class file */
 
 function LoginWidget() {
-
+   /* Properties - PRIVATE */
 }
 
 
@@ -9,6 +9,12 @@ function LoginWidget() {
 
 
 /* Methods - prototype*/
+LoginWidget.prototype.display = function() {
+   
+}
 
+LoginWidget.prototype.connect = function() {
+
+}
 
 /* Getters & setters */
