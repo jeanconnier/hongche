@@ -3,3 +3,12 @@
 function StringChecker() {
 
 }
+
+
+/* Properties - prototype */
+
+
+/* Methods - prototype*/
+
+
+/* Getters & setters */

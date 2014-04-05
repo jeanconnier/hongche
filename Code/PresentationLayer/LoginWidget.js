@@ -3,3 +3,12 @@
 function LoginWidget() {
 
 }
+
+
+/* Properties - prototype */
+
+
+/* Methods - prototype*/
+
+
+/* Getters & setters */
