@@ -2,7 +2,7 @@
 
 function CustomizeView() {
    /* Properties - PRIVATE */
-   
+   alert("CustomizeView instanciated");
 }
 
 
@@ -14,7 +14,7 @@ CustomizeView.prototype.display = function() {
    
 }
 
-CustomizeView.prototype.makeADemand() {
+CustomizeView.prototype.makeADemand = function() {
    
 }
 

@@ -4,15 +4,18 @@
 	<head>
 		<title>HongChe</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+      
+      
+      <script src="App.js"></script>
 	</head>
 	
 	<body>
    
    <div id="MenuBar">
-      <span class="MenuElement">Customize</span>
-      <span class="MenuElement">Demands</span>
-      <span class="MenuElement">Personal</span>
+      <span class="MenuElement" id="MenuElementCustomize">Customize</span>
+      <span class="MenuElement" id="MenuElementDemands">Demands</span>
+      <span class="MenuElement" id="MenuElementPersonal">Personal</span>
    </div>
    
    <div id="TitleBar">
@@ -28,6 +31,7 @@
             <label>Password</label>
             <input type="password" name="LoginWidgetPassword"/>
             <span class="Button" id="ConnectButton">Connect</span>
+            Not registered yet? <span class="Button" id="RegisterButton">Please do!</span>
          </form>
       </div>
       <div id="LoginWidgetAuthentifiedUser">

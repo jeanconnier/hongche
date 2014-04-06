@@ -14,11 +14,11 @@ RegisterView.prototype.display = function() {
    
 }
 
-RegisterView.prototype.hashPassword() {
+RegisterView.prototype.hashPassword = function() {
    
 }
 
-RegisterView.prototype.registerUser() {
+RegisterView.prototype.registerUser = function() {
    
 }
 

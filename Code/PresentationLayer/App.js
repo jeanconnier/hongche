@@ -1,0 +1,115 @@
+/* App script */
+
+var debugLevel = 2;
+
+function debug(level, string) {
+   if(debugLevel >= level) {
+      alert(string);
+   }
+}
+alert("fronf");
+
+$('#CustomizeView').show();
+      $('#RegisterView').hide();
+      $('#DemandsView').hide();
+      $('#PersonalView').hide();
+      
+
+      $.getScript("User.js", debug(2,"User.js loaded"));
+      $.getScript("Demand.js", debug(2,"Demand.js loaded"));
+      $.getScript("Offer.js",debug(2,"Offer.js loaded"));
+      $.getScript("DemandsView.js", debug(2,"DemandsView.js loaded"));
+      $.getScript("CustomizeView.js", debug(2,"CustomizeView.js loaded"));
+      $.getScript("PersonalView.js", debug(2,"PersonalView.js loaded"));
+      $.getScript("RegisterView.js", debug(2,"RegisterView.js loaded"));
+      $.getScript("LoginWidget.js", debug(2,"LoginWidget.js loaded"));
+      $.getScript("StringChecker.js", debug(2,"StringChecker.js loaded"));
+      
+function App() {
+/*
+   this._customizeView = new CustomizeView();
+   this._registerView = new RegisterView();
+   this._personalView = new PersonalView();
+   this._demandsView = new DemandsView();
+   */
+   alert("App instanciated");
+}
+
+/* Properties - prototype 
+App.prototype._customizeView = new CustomizeView();
+App.prototype._registerView = new RegisterView();
+App.prototype._personalView = new PersonalView();
+App.prototype._demandsView = new DemandsView();
+*/
+
+
+/* Methods */
+App.prototype.main = function() {
+
+   alert("bon...");
+   var _customizeView = new CustomizeView();
+   //var _registerView = new RegisterView();
+   //var _personalView = new PersonalView();
+   //var _demandsView = new DemandsView();
+   alert("niamkf");
+   
+
+   $(document).ready( function() {
+      /* Loading the required scripts */
+      
+      /* Set view switching callbacks */
+      $("#MenuElementCustomize").click( function() {
+         $("#CustomizeView").show();
+         $("#RegisterView").hide();
+         $("#DemandsView").hide();
+         $("#PersonalView").hide();
+         
+         this._customizeView.display();
+      });
+      $("#MenuElementPersonal").click( function() {
+         $("#CustomizeView").hide();
+         $("#RegisterView").hide();
+         $("#DemandsView").hide();
+         $("#PersonalView").show();
+         
+         this._personalView.display();
+      });
+      $("#PersonalSpaceButton").click( function() {
+         $("#CustomizeView").hide();
+         $("#RegisterView").hide();
+         $("#DemandsView").hide();
+         $("#PersonalView").show();
+         
+         this._personalView.display();
+      });
+      $("#RegisterButton").click( function() {
+         $("#CustomizeView").hide();
+         $("#RegisterView").show();
+         $("#DemandsView").hide();
+         $("#PersonalView").hide();
+         
+         this._registerView.display();
+      });
+      $("#MenuElementDemands").click( function() {
+         $("#CustomizeView").hide();
+         $("#RegisterView").hide();
+         $("#DemandsView").show();
+         $("#PersonalView").hide();
+         
+         this._demandsView.display();
+      });
+      
+      /* The default view is the CustomizeView */
+      /*$("#CustomizeView").show();
+      $("#RegisterView").hide();
+      $("#DemandsView").hide();
+      $("#PersonalView").hide();*/
+      
+      this._customizeView.display();
+   });
+   
+}
+
+var app = new App();
+
+app.main();
