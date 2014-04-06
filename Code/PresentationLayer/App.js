@@ -49,7 +49,7 @@ App.prototype.main = function() {
       
       /* Set views callbacks */
       _customizeView.setCallbacks();
-      //_registerView.setCallbacks();
+      _registerView.setCallbacks();
       /*_personalView.setCallbacks();
       _demandsView.setCallbacks();*/
       
