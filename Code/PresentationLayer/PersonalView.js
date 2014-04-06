@@ -44,6 +44,9 @@ PersonalView.prototype.setUserId = function(userId) {
    this._userId = userId;
 }
 
+   
+   
+
 /*
 PersonalView.prototype.setOffersList = function(offersList) {
    this._offersList = offersList;

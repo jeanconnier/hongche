@@ -61,8 +61,9 @@ body
    background-color: #FF9900;
 }
 
-.Button :hover
+.Button:hover
 {
-   background-color: #EE8800;
+   background-color: #990000;
+   text-decoration: italic;
 }
 

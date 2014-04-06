@@ -50,8 +50,7 @@ App.prototype.main = function() {
       /* Set views callbacks */
       _customizeView.setCallbacks();
       _registerView.setCallbacks();
-      /*_personalView.setCallbacks();
-      _demandsView.setCallbacks();*/
+      _demandsView.setCallbacks();
       
       /* Set view switching callbacks */
       $("#MenuElementCustomize").click( function() {

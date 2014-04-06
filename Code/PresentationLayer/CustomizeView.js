@@ -16,7 +16,7 @@ CustomizeView.prototype.display = function() {
 }
 
 CustomizeView.prototype.makeADemand = function() {
-   var colour = $("CustomizeViewColour option:selected").val();
+   var colour = $("#CustomizeViewColour option:selected").val();
    var type = $("#CustomizeViewType option:selected").val();
    
    debug(1, "Demande - couleur: " + colour + " & type: " + type + ".");

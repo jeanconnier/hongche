@@ -34,6 +34,18 @@ DemandsView.prototype.setPageIndex = function(pageIndex) {
    this._pageIndex = pageIndex;
 }
 
+DemandsView.prototype.setCallbacks = function() {
+   var self = this;
+   
+   for(var i = 0; i<this._demandsList.length -1; i++) {
+      
+   }
+   
+   for (var i = 0; i < lines_number - 1; i++) {
+                data += '<li class="public_line">' + lines[i] + '</li>';
+            }
+   });
+}
 /*
 DemandsView.prototype.setDemandsList = function(demandsList) {
    this._demandsList = demandsList;
