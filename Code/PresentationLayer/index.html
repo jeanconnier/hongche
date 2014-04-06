@@ -4,7 +4,8 @@
 	<head>
 		<title>HongChe</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+      <script src="jquery.js"></script>
       
       
       <script src="App.js"></script>
@@ -45,12 +46,12 @@
       Options:
       <form action="">
          <label>Colour</label>
-         <select name="CustomizeViewColour">
+         <select id="CustomizeViewColour">
             <option value="white">white</option>
             <option value="grey">grey</option>
          </select>
          <label>Type</label>
-         <select name="CustomizeViewType">
+         <select id="CustomizeViewType">
             <option value="Peugeot 206">Peugeot 206</option>
             <option value="Citroen BX">Citroen BX</option>
          </select>
@@ -68,6 +69,7 @@
          <label>Password</label>
          <input type="password" name="RegisterViewPassword" />
       </form>
+      <span class="Button" id="RegistrationButton">Register</span>
    </div>
    
    <div class="View" id="DemandsView">

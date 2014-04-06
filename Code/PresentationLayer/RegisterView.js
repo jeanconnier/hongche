@@ -19,7 +19,11 @@ RegisterView.prototype.hashPassword = function() {
 }
 
 RegisterView.prototype.registerUser = function() {
-   
+   debug(2, "User registered");
 }
+/*
+RegisterView.prototype.setCallbacks = function() {
+   $("#RegistrationButton").click( this.registerUser(); );
+}*/
 
 /* Getters & setters */
