@@ -1,16 +1,24 @@
+body
+{
+   background-color: #DDDDDD;
+   color: black;
+   text-decoration: bold;
+   padding: 2px;
+}
+
 #MenuBar
 {
-
+   background-color: #FF1111;
 }
 
 #TitleBar
 {
-
+   background-color: #FF1111;
 }
 
 #LoginWidget
 {
-
+   background-color: #FF9900;
 }
 
 #LoginWidgetAuthentifiedUser
@@ -25,7 +33,7 @@
 
 .View
 {
-
+   background-color: #FF9900;
 }
 
 #CustomizeView
@@ -48,9 +56,13 @@
 
 }
 
-#Button
+.Button
 {
-
+   background-color: #FF9900;
 }
 
+.Button :hover
+{
+   background-color: #EE8800;
+}
 
