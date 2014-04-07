@@ -105,6 +105,8 @@ App.prototype.main = function() {
    
 }
 
+
+var loginWidget = new LoginWidget();
 var app = new App();
 
 app.main();
