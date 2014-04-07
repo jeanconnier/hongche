@@ -79,7 +79,7 @@
 	  }*/
 	  $_SESSION['userId'] = $_POST['userId'];
 	  echo $_SESSION['userId'];
-	  echo $isConnected;
+	  //echo $isConnected;
    }
    
    function disconnectBL() {
