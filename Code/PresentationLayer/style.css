@@ -3,26 +3,65 @@ body
    background-color: #DDDDDD;
    color: black;
    text-decoration: bold;
+   padding: 0px;
+   margin:0px;
+   word-wrap:break-word;
+}
+
+div, span
+{
    padding: 2px;
 }
 
 #MenuBar
 {
-   background-color: #FF1111;
+   background-color: #EE2222;
+   display: block;
+   position: absolute;
+   left: 2%;
+   top: 2%;
+   width: 72%;
+   height: 8%;
+}
+
+.Title
+{
+   font-size:200%;
+   margin-left: 30%;
+}
+
+.MenuElement
+{
+   font-size:200%;
+   margin-left:10%;
+   margin-right:10%;
 }
 
 .MenuElement:hover
 {
    background-color: #FF9900;
 }
+
 #TitleBar
 {
-   background-color: #FF1111;
+   background-color: #EE2222;
+   display: block;
+   position: absolute;
+   left: 2%;
+   top: 12%;
+   width: 72%;
+   height: 8%;
 }
 
 #LoginWidget
 {
    background-color: #FF9900;
+   display: block;
+   position: absolute;
+   left: 76%;
+   top: 2%;
+   width: 22%;
+   height: 18%;
 }
 
 #LoginWidgetAuthentifiedUser
@@ -37,7 +76,15 @@ body
 
 .View
 {
-   background-color: #FF9900;
+   background-color: #EE8800;
+   
+   display: block;
+   position: absolute;
+   
+   left: 1%;
+   top: 1%;
+   width: 98%;
+   height: 98%;
 }
 
 #CustomizeView
@@ -62,12 +109,39 @@ body
 
 .Button
 {
-   background-color: #FF9900;
+   background-color: #EE2222;
 }
 
 .Button:hover
 {
-   background-color: #990000;
+   background-color: #FF0000;
    text-decoration: italic;
 }
 
+#LoginLabel
+{
+   margin-left:auto;
+   margin-right:auto;
+}
+
+#ConnectButton
+{
+   position: absolute;
+   left: 75%;
+   top: 5%;
+   height: 80%;
+   width: 22%;
+}
+
+#Container
+{
+   background-color: #FF9900;
+   padding: 4px;
+   
+   display: block;
+   position: absolute;
+   left: 2%;
+   top: 22%;
+   width: 96%;
+   height: 76%;
+}

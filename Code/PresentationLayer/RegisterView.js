@@ -15,7 +15,7 @@ RegisterView.prototype.display = function() {
 }
 
 RegisterView.prototype.registerUser = function(userId, username, hash) {
-
+   alert("Trying to register...");
    $.ajax({
        type: 'POST',
        url: businessLogicLayerUrl,
@@ -28,7 +28,6 @@ RegisterView.prototype.registerUser = function(userId, username, hash) {
        },
        success: function ( data ) {
            alert('success!' + data);
-           //alert("fronf");
        },
        error: function () {
            alert('error');

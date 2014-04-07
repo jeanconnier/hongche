@@ -20,18 +20,18 @@
    </div>
    
    <div id="TitleBar">
-      <h4>HongChe</h4>
+      <span class="Title">HongChe</span>
    </div>
    
    <div id="LoginWidget">
       <div id="LoginWidgetUnauthentifiedUser">
-         Login:
+         <span id="LoginLabel">Login:</span>
          <form action="">
             <label>User ID</label>
-            <input type="text" id="LoginWidgetUserId" name="LoginWidgetUserId"/>
+            <input type="text" id="LoginWidgetUserId" name="LoginWidgetUserId"/><br/>
             <label>Password</label>
             <input type="password" id="LoginWidgetPassword"name="LoginWidgetPassword"/>
-            <span class="Button" id="ConnectButton">Connect</span>
+            <span class="Button" id="ConnectButton">Connect</span><br/>
             Not registered yet? <span class="Button" id="RegisterButton">Please do!</span>
          </form>
       </div>
@@ -40,6 +40,8 @@
       <span class="Button" id="DisconnectButton">Disconnect</span>
       </div>
    </div>
+   <div id="Container">
+   
    
    <div class="View" id="CustomizeView">
       Options:
@@ -111,7 +113,7 @@
          </li>
       </div>
    </div>
-   
+   </div>
    
 	</body>
 </html>
