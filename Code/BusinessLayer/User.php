@@ -60,7 +60,7 @@
    function connectBL() {
 	  $isConnected = "false";
 	  // If the form has been correctly filled
-	  if ( !empty($_POST['userId']) && !empty($_POST['hash']) )
+	  /*if ( !empty($_POST['userId']) && !empty($_POST['hash']) )
 	  {
 	     // If the user exists
 	     if ( checkUserIdBL() )
@@ -74,10 +74,11 @@
 		    }
 	     }
 	  
-	     $_SESSION['userId'] = $_POST['userId'];
-	     echo $_SESSION['userId'];
+	     
 	     //echo 'User '.getUsernameDAL().' is connected';
-	  }
+	  }*/
+	  $_SESSION['userId'] = $_POST['userId'];
+	  echo $_SESSION['userId'];
 	  echo $isConnected;
    }
    
