@@ -2,13 +2,6 @@
    include('User.php');
    include('Offer.php');
    include('Demand.php');
-
-   // Get the name of the class and method called
-   $_class = $_POST['class'];
-   $_method = $_POST['method'];
-
-   echo $_method;
-
    
 //   $handle = fopen('foo.txt', 'a');
    

@@ -5,7 +5,7 @@
    
    // Call the corresponding function
    function User() {
-	  switch ($_method) {
+	  switch ($_POST['method']) {
 		 case "connect":
 		 connectBL();
 		 break;
