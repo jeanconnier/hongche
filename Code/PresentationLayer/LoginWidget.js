@@ -31,6 +31,7 @@ LoginWidget.prototype.connect = function(userId, hash) {
    this._isConnected = true;
    self = this;
    
+   
    $.ajax({
        type: 'POST',
        url: businessLogicLayerUrl,
@@ -41,12 +42,13 @@ LoginWidget.prototype.connect = function(userId, hash) {
          hash:hash
        },
        success: function ( data ) {
-       
+         self._user = new User();
          self._user.setHash( hash );
          self._user.setName( data );
          self._user.setId( userId );
          
          alert( userId + 'success!' + data);
+         //alert("success");
        },
        error: function () {
            alert('error');
@@ -69,7 +71,7 @@ LoginWidget.prototype.disconnect = function( userId ) {
          userId:userId
        },
        success: function ( data ) {
-         alert( userId + 'success!' + data);
+         alert( 'success!' + data);
        },
        error: function () {
          alert('error');
@@ -92,7 +94,7 @@ LoginWidget.prototype.setCallbacks = function() {
    });
    
    $("#DisconnectButton").click( function() {
-      self.disconnect( this._user.getId() );
+      self.disconnect( self._user.getId() );
    });
    
    $(".Button").click( function() {

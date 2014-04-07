@@ -57,6 +57,7 @@ App.prototype.main = function() {
       _customizeView.setCallbacks();
       _registerView.setCallbacks();
       _demandsView.setCallbacks();
+      alert("salut");
       
       /* Set view switching callbacks */
       $("#MenuElementCustomize").click( function() {

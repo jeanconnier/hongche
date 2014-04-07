@@ -14,8 +14,8 @@ RegisterView.prototype.display = function() {
    
 }
 
-RegisterView.prototype.registerUser = function( userId, username, hash) {
-   
+RegisterView.prototype.registerUser = function(userId, username, hash) {
+
    $.ajax({
        type: 'POST',
        url: businessLogicLayerUrl,
@@ -28,13 +28,12 @@ RegisterView.prototype.registerUser = function( userId, username, hash) {
        },
        success: function ( data ) {
            alert('success!' + data);
+           //alert("fronf");
        },
        error: function () {
            alert('error');
        }
    });
-   
-   debug(1, "User registered");
 }
 
 RegisterView.prototype.setCallbacks = function() {
@@ -46,7 +45,8 @@ RegisterView.prototype.setCallbacks = function() {
       
       var hash = hashFunction( password );
       
-      self.registerUser( userId, userName, hash );
+      self.registerUser(userId, username, hash);
+      //self.display();
     });
     
     debug(2, "RegisterView callbacks set");
