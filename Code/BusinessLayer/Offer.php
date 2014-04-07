@@ -44,7 +44,7 @@
 	  }
    }
    
-   function deleteOfferBL() 
+   function deleteOfferBL() {
       if( deleteOfferDAL($_POST['offerId']) )
 	  {
 	     echo "true";
