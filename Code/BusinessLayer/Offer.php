@@ -45,14 +45,14 @@
    }
    
    function deleteOfferBL() {
-     /* if( deleteOfferDAL($_POST['offerId']) )
+      if( deleteOfferDAL($_POST['offerId']) )
 	  {
 	     echo "true";
 	  }
 	  else
 	  {
 	     echo "false";
-	  }*/
+	  }
    }
    
    function updateOfferBL() {
