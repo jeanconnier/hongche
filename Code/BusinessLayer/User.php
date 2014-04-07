@@ -86,7 +86,7 @@
    // registerBL tests if the userId is already in use, if not the user is created
    function registerBL() {
       // If the user doesn't exist
-      if( !checkUserIdBL() )
+      /*if( !checkUserIdBL() )
 	  {
 	     registerBL($_POST['userId'], $_POST['username'], $_POST['hash']);
          echo "true";
@@ -95,6 +95,8 @@
 	  {
 	     echo "false";
 	  }
+	  */
+	  echo ' 8==D'.$_SESSION['userId'];
 	  echo "Register";
    }
    
