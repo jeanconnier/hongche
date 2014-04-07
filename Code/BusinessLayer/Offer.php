@@ -2,22 +2,39 @@
    
    function Offer() {
    
-      switch ( $_POST['method'] )
+      switch ( $_POST['method'] ) {
          case "create":
-		 create();
+		 createOfferBL();
 	     break;
 	  
 	     case "delete":
-		 delete();
+		 deleteOfferBL();
 	     break;
 	  
 	     case "update":
-		 update();
+		 updateOfferBL();
 	     break;
 	  
 	     case "acceptDeal":
-		 acceptDeal();
+		 acceptDealBL();
 	     break;
+      }
    }
    
+   
+   function createOfferBL() {
+   
+   }
+   
+   function deleteOfferBL() {
+   
+   }
+   
+   function updateOfferBL() {
+   
+   }
+   
+   function acceptDealBL() {
+   
+   }
 ?>

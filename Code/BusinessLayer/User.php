@@ -3,8 +3,6 @@
 
    session_start();
    
-   
-   
    // Call the corresponding function
    function User() {
 	  switch ($_method) {

@@ -3,11 +3,11 @@
    include('Offer.php');
    include('Demand.php');
 
-   echo $_POST['class'];
-   echo $_POST['method'];
-
+   // Get the name of the class and method called
    $_class = $_POST['class'];
    $_method = $_POST['method'];
+
+   echo $_method;
 
    
 //   $handle = fopen('foo.txt', 'a');

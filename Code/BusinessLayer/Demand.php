@@ -1,36 +1,45 @@
 <?php
-   
+
    function Demand() {
    
-      switch ( $_POST['method'] )
+      switch ( $_POST['method'] ) {
          case "create":
-		 create();
+		 createDemandBL();
 	     break;
 	  
 	     case "delete":
-		 delete();
+		 deleteDemandBL();
 	     break;
 	  
 	     case "getBestOffer":
-		 update();
+		 getBestOfferBL();
 	     break;
 	  
 	     case "secureDeal":
-		 acceptDeal();
+		 secureDealBL();
 	     break;
-		 
-		 case "cancel":
-		 cancel();
-		 break;
-		 
-		 
+      }
    }
    
    
-   function create() {
+   function createDemandBL() {      
+      createDemandDAL($_SESSION['userId'], $_POST['brand'], $_POST['type'], $_POST['colour'], $_POST['motor'], $_POST['condition']);
+   }
    
-      
+   function deleteDemandBL() {
+	  deleteDemandDAL($_POST['demandId']);
+   }
    
+   function getBestOfferBL() {
+      echo getBestOfferDAL($_POST['demandID']);
+   }
+   
+   function secureDealBL() {
+   
+   }
+   
+   function checkDemandIdBL() {
+
    }
    
 ?>
