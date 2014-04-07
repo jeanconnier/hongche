@@ -27,10 +27,8 @@
    // The checkUserId method returns true is the user exists and false otherwise
    function checkUserIdBL() {
 	  $isExisting = false;
-	  // Get the hash corresponding to the userId from the database
-	  $hash = getHashDAL($_POST['userId']);
 	  // If the user exists
-	  if ($hash != NULL )
+	  if ( checkUserIdDAL() )
 	  {
 		 $isExisting = true;
 	  }
@@ -39,13 +37,12 @@
    
    // The chechHash method returns true if the hash is correct and false otherwise
    function checkHashBL() {
-	  $isCorrect = false;
-	  // Get the hash corresponding to the userId from the database
-	  $hash = getHashDAL($_POST['userId']);
-	  
+	  $isCorrect = false;	  
 	  // If the user exists
-	  if ( $hash != NULL )
+	  if ( checkUserIdDAL() )
 	  {
+	    // Get the hash corresponding to the userId from the database
+	    $hash = getHashDAL($_POST['userId']);
 		// If the hash is correct
 		 if ( $hash == $_POST['hash'] )
 		 {
@@ -58,6 +55,7 @@
 
    function connectBL() {
 	  $isConnected = false;
+	  /*
 	  // If the user exists
 	  if ( checkUserIdBL() )
 	  {
@@ -69,7 +67,10 @@
 			$_SESSION['userId'] = $_POST['userId'];
 		 }
 	  }
-	  echo 'User '.getUsernameDAL().' is connected';
+	  */
+	  $_SESSION['userId'] = $_POST['userId'];
+	  echo $_SESSION['userId'];
+	  //echo 'User '.getUsernameDAL().' is connected';
 	  return $isConnected;
    }
    
@@ -85,6 +86,7 @@
 	  {
 	     echo "userId already in use";
 	  }*/
+	  echo $_SESSION['userId'];
 	  echo "Register";
    }
    
