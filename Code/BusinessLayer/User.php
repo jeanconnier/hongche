@@ -58,24 +58,27 @@
    
 
    function connectBL() {
-	  $isConnected = false;
-	  /*
-	  // If the user exists
-	  if ( checkUserIdBL() )
+	  $isConnected = "false";
+	  // If the form has been correctly filled
+	  if ( !empty($_POST['userId']) && !empty($_POST['hash']) )
 	  {
-	     // If the hash is correct
-		 if ( checkHashBL() )
-		 {
-			$isConnected = true;
-			// The session save the user ID
-			$_SESSION['userId'] = $_POST['userId'];
-		 }
+	     // If the user exists
+	     if ( checkUserIdBL() )
+	     {
+	        // If the hash is correct
+		    if ( checkHashBL() )
+		    {
+			   $isConnected = "true";
+			   // The session save the user ID
+			   $_SESSION['userId'] = $_POST['userId'];
+		    }
+	     }
+	  
+	     $_SESSION['userId'] = $_POST['userId'];
+	     echo $_SESSION['userId'];
+	     //echo 'User '.getUsernameDAL().' is connected';
 	  }
-	  */
-	  $_SESSION['userId'] = $_POST['userId'];
-	  echo $_SESSION['userId'];
-	  //echo 'User '.getUsernameDAL().' is connected';
-	  return $isConnected;
+	  echo $isConnected;
    }
    
    function disconnectBL() {
@@ -85,19 +88,17 @@
    
    // registerBL tests if the userId is already in use, if not the user is created
    function registerBL() {
-      // If the user doesn't exist
-      /*if( !checkUserIdBL() )
-	  {
-	     registerBL($_POST['userId'], $_POST['username'], $_POST['hash']);
-         echo "true";
-	  }
-	  else
-	  {
-	     echo "false";
-	  }
-	  */
-	  echo ' 8==D'.$_SESSION['userId'];
-	  echo "Register";
+      $isRegistered = "false";
+      if ( !empty($_POST['userId']) && !empty($_POST['username']) && !empty($_POST['hash']) )
+      {
+	     // If the user ID is available
+         if( !checkUserIdBL() )
+	     {
+	        registerBL($_POST['userId'], $_POST['username'], $_POST['hash']);
+            echo "true";
+	     }
+	  }  
+	  echo $isRegistered;
    }
    
    // getUsernameBL returns the username corresponding to the userId
