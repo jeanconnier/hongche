@@ -3,13 +3,13 @@
 /* Class declaration */
 function Demand() {
    /* Properties - PRIVATE */
-   this._userId = '';
+   this._user = '';
    this._id = '';
    this._optionColor = '';
 }
 
 /* Properties - prototype */
-Demand.prototype._userId = '';
+Demand.prototype._user = '';
 Demand.prototype._id = '';
 Demand.prototype._optionColor = '';
 
@@ -43,14 +43,14 @@ Demand.prototype.getId = function() {
    return this._id;
 }
 
-Demand.prototype.getUserId = function() {
-   return this._userId;
+Demand.prototype.getUser = function() {
+   return this._user;
 }
 
 Demand.prototype.setId = function(id) {
    this._id = id;
 }
 
-Demand.prototype.setUserId = function(userId) {
-   this._userId = userId;
+Demand.prototype.setUser = function(userId) {
+   this._userId = user;
 }
