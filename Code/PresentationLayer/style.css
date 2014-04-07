@@ -11,6 +11,10 @@ body
    background-color: #FF1111;
 }
 
+.MenuElement:hover
+{
+   background-color: #FF9900;
+}
 #TitleBar
 {
    background-color: #FF1111;

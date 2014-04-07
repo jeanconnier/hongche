@@ -50,14 +50,11 @@ App.prototype.main = function() {
       var _registerView = new RegisterView();
       var _personalView = new PersonalView();
       var _demandsView = new DemandsView();
-      alert("fronf");
+      
       /* Set views callbacks */
       _customizeView.setCallbacks();
       _registerView.setCallbacks();
-      _demandsView.sayHello();
-      alert("fronff");
-      //loginWidget.setCallbacks();
-      alert("niamkf");
+      _demandsView.setCallbacks();
       
       /* Set view switching callbacks */
       $("#MenuElementCustomize").click( function() {

@@ -20,7 +20,6 @@ CustomizeView.prototype.makeADemand = function() {
    var type = $("#CustomizeViewType option:selected").val();
    
    debug(1, "Demande - couleur: " + colour + " & type: " + type + ".");
-   //debug(1, "yoh");
 }
 
 CustomizeView.prototype.sayHello = function() {
@@ -38,4 +37,7 @@ CustomizeView.prototype.setCallbacks = function() {
 }
 
 
+
+
+                       
 /* Getters & setters */

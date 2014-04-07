@@ -28,6 +28,24 @@ LoginWidget.prototype.display = function() {
 
 LoginWidget.prototype.connect = function(username, hash) {
    this._isConnected = true;
+   
+   $.ajax({
+       type: 'POST',
+       url: '../BusinessLayer/landing.php',
+       data: {
+         class:"LoginWidget",
+         method:"connect",
+         username:username,
+         hash:hash
+       },
+       success: function ( data ) {
+           alert('success!' + data);
+       },
+       error: function () {
+           alert('error');
+       }
+   });
+               
    debug(1, "Connection...");
 }
 
@@ -60,4 +78,17 @@ LoginWidget.prototype.setCallbacks = function() {
 }
 
 
+/*$.ajax({ type:"POST",
+              url:"landing.php",
+              data:{
+                           
+                       },
+              success:function() {
+                                                alert("success");
+                                             },
+              error:function() {
+                                            alert("error");
+                                        }
+            });*/
+            
 /* Getters & setters */
