@@ -44,15 +44,15 @@
 	  }
    }
    
-   function deleteOfferBL() 
-      if( deleteOfferDAL($_POST['offerId']) )
+   function deleteOfferBL() {
+     /* if( deleteOfferDAL($_POST['offerId']) )
 	  {
 	     echo "true";
 	  }
 	  else
 	  {
 	     echo "false";
-	  }
+	  }*/
    }
    
    function updateOfferBL() {

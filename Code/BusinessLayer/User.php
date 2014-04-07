@@ -108,7 +108,7 @@
       if ( checkUserIdBL() )
 	  {
 	     // Get the username from the database
-         $username = getUsernameDAL($_SESSION['userId']);
+         //$username = getUsernameDAL($_SESSION['userId']);
 		 echo $username;
       }
 	  else
@@ -119,7 +119,7 @@
    
    // getDemandsBL returns all the demands of the user
    function getDemandsBL() {
-      $demands = getDemandsDAL($_POST['userId']);
+      //$demands = getDemandsDAL($_POST['userId']);
       echo "Les demandes sont ...";
    }
 ?>

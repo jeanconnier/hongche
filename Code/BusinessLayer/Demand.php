@@ -47,11 +47,11 @@
    }
    
    function deleteDemandBL() {
-	  deleteDemandDAL($_POST['demandId']);
+	//  deleteDemandDAL($_POST['demandId']);
    }
    
    function getBestOfferBL() {
-      echo getBestOfferDAL($_POST['demandID']);
+      //echo getBestOfferDAL($_POST['demandID']);
    }
    
    function secureDealBL() {
