@@ -25,7 +25,7 @@
    function createDemandBL() {      
       if ( !empty($_POST['brand'])  && !empty($_POST['type']) && !empty($_POST['motor']) && !empty($_POST['condition']) )
 	  {
-	     echo $_SESSION['userID'];
+	     echo $_SESSION['userId'];
          $demandId = $_SESSION['userId'].time();
 		 // If the SQL request is successful
          if( true /*createDemandDAL($demandId, $_SESSION['userId'], $_POST['brand'], $_POST['type'], $_POST['motor'], $_POST['condition'])*/ )
