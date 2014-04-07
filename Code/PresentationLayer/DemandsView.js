@@ -21,7 +21,7 @@ DemandsView.prototype.display = function() {
    this.getDemands();
    var htmlList = '';
    for(var i = 0; i < this._demandsList.length; i++) {
-      htmlList += '<li class="DemandsViewDemandElement">Id='+_demandsList[i].getUserId()+'<br/>'+_demandsList[i].getId()+'<span class="button" id="AnswerDemandButton">Answer</span></li>';
+      htmlList += '<li class="DemandsViewDemandElement">Id='+_demandsList[i].getUser().getId()+'<br/>'+_demandsList[i].getId()+'<span class="button" id="AnswerDemandButton">Answer</span></li>';
    }
 }
 
