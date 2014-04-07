@@ -4,6 +4,8 @@ function LoginWidget() {
    /* Properties - PRIVATE */
    this._isConnected = false;
    this._user = '';
+   
+   debug(1, "LoginWidget instanciated");
 }
 
 
@@ -14,7 +16,7 @@ LoginWidget.prototype._user = '';
 /* Methods - prototype*/
 LoginWidget.prototype.display = function() {
    
-   if(this._isConnected == true) {
+   if(this._isConnected) {
       $("#LoginWidgetUnauthentifiedUser").hide();
       $("#LoginWidgetAuthentifiedUser").show();
    }
@@ -25,10 +27,12 @@ LoginWidget.prototype.display = function() {
 }
 
 LoginWidget.prototype.connect = function(username, hash) {
+   this._isConnected = true;
    debug(1, "Connection...");
 }
 
 LoginWidget.prototype.disconnect = function() {
+   this._isConnected = false;
    debug(2, "Disconnection...");
 }
 
@@ -47,6 +51,12 @@ LoginWidget.prototype.setCallbacks = function() {
    $("#DisconnectButton").click( function() {
       self.disconnect();
    });
+   
+   $(".Button").click( function() {
+      loginWidget.display();
+   });
+   
+   debug(2, "LoginWidget callbacks set");
 }
 
 

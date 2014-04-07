@@ -5,6 +5,7 @@ function PersonalView() {
    this._user = '';
    this._offersList = new Array();
    this._demandsList = new Array();
+   debug(1, "PersonalView instanciated");
 }
 
 

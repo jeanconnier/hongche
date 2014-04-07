@@ -2,7 +2,7 @@
 
 function RegisterView() {
    /* Properties - PRIVATE */
-   
+   debug(1, "RegisterView instanciated");
 }
 
 
@@ -29,6 +29,8 @@ RegisterView.prototype.setCallbacks = function() {
       
       self.registerUser( userId, userName, hash );
     });
+    
+    debug(2, "RegisterView callbacks set");
 }
 
 /* Getters & setters */

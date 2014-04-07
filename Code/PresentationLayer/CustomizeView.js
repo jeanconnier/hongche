@@ -28,19 +28,13 @@ CustomizeView.prototype.sayHello = function() {
 }
 
 CustomizeView.prototype.setCallbacks = function() {
-   /*alert("callback set");
-   this.sayHello();
-   x.sayHello();*/
    var self = this;
    
-   //self.sayHello();
-   
    $("#MakeADemandButton").click( function(){
-      //function() { alert("yoh " + this); }
-      //this.makeADemand();
-      //alert("bonjour" + typeof self);
       self.makeADemand();
    });
+   
+   debug(2, "CustomizeView callbacks set");
 }
 
 

@@ -10,11 +10,11 @@ function DemandsView() {
 
 /* Properties - prototype */
 //DemandsView.prototype._pageIndex = 0;
-DemandsView.prototype._demandsList = newArray();
+DemandsView.prototype._demandsList = new Array();
 
 /* Methods - prototype*/
 DemandsView.prototype.getDemands = function() {
-   
+   alert("getDemands");
 }
 
 DemandsView.prototype.display = function() {
@@ -26,26 +26,33 @@ DemandsView.prototype.display = function() {
 }
 
 /* Getters & setters */
+/*
 DemandsView.prototype.getPageIndex = function() {
    return this._pageIndex;
 }
-
+*/
 DemandsView.prototype.getDemandsList = function() {
    return this._demandsList;
 }
 
+/*
 DemandsView.prototype.setPageIndex = function(pageIndex) {
    this._pageIndex = pageIndex;
 }
 
+*/
+DemandsView.prototype.sayHello = function() {
+   alert("hello");
+}
+
 DemandsView.prototype.setCallbacks = function() {
-   
-   for(var i = 0; i < this._demandsList.length -1; i++) {
-      x = _demandsList[i];
+   for(var i = 0; i < this._demandsList.length-1; i++) {
+      x = this._demandsList[i];
       $("#AnswerDemandButton"+i).click( function() {
          x.makeAnOffer();
       });
    }
+   debug(2, "DemandsView callbacks set");
 }
 
 /*

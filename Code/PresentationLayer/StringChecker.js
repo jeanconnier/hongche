@@ -10,7 +10,7 @@ function StringChecker() {
 
 /* Methods - prototype*/
 StringChecker.prototype.check = function( x ) {
-   return ( x === x.replace(/[^a-zA-Z0-9\s]/gi, ''));
+   return !( x !== x.replace(/[^a-zA-Z0-9\s]/gi, ''));
 }
 
 /* Getters & setters */

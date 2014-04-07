@@ -14,15 +14,15 @@ function hashFunction( x ) {
 
       
 /* Loading the required scripts */
-$.getScript("User.js", debug(3,"User.js loaded"));
-$.getScript("Demand.js", debug(3,"Demand.js loaded"));
-$.getScript("Offer.js",debug(3,"Offer.js loaded"));
-$.getScript("DemandsView.js", debug(3,"DemandsView.js loaded"));
-$.getScript("CustomizeView.js", debug(3,"CustomizeView.js loaded"));
-$.getScript("PersonalView.js", debug(3,"PersonalView.js loaded"));
-$.getScript("RegisterView.js", debug(3,"RegisterView.js loaded"));
-$.getScript("LoginWidget.js", debug(3,"LoginWidget.js loaded"));
-$.getScript("StringChecker.js", debug(3,"StringChecker.js loaded"));
+// $.getScript("User.js", debug(3,"User.js loaded"));
+// $.getScript("Demand.js", debug(3,"Demand.js loaded"));
+// $.getScript("Offer.js",debug(3,"Offer.js loaded"));
+// $.getScript("DemandsView.js", debug(3,"DemandsView.js loaded"));
+// $.getScript("CustomizeView.js", debug(3,"CustomizeView.js loaded"));
+// $.getScript("PersonalView.js", debug(3,"PersonalView.js loaded"));
+// $.getScript("RegisterView.js", debug(3,"RegisterView.js loaded"));
+// $.getScript("LoginWidget.js", debug(3,"LoginWidget.js loaded"));
+// $.getScript("StringChecker.js", debug(3,"StringChecker.js loaded"));
       
 function App() {
 /*
@@ -101,7 +101,7 @@ App.prototype.main = function() {
       
       $(".Button").click( function() {
          loginWidget.display();
-      }
+      });
       
       /* The default view is the CustomizeView */
       $("#CustomizeView").show();
