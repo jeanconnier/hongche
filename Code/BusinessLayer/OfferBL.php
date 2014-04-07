@@ -58,7 +58,7 @@
    }
    
    function updateOfferBL() {
-      if ( !empty($_POST['offerId'] && !empty($_POST['demandId'])  && !empty($_POST['userId']) && !empty($_POST['price']) )
+      if ( !empty($_POST['offerId']) && !empty($_POST['demandId'])  && !empty($_POST['userId']) && !empty($_POST['price']) )
       {
 	     // If the new price of the updated offer is lower than the current best offer
 	     if (  $_POST['price'] < getOfferPriceDAL(getBestOfferIdDAL($_POST['demandId']) ) )

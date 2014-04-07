@@ -36,7 +36,7 @@
    function checkUserIdBL() {
 	  $isExisting = false;
 	  // If the user exists
-	  if ( checkUserIdDAL() )
+	  if ( checkUserIdDAL($_POST['userId']) )
 	  {
 		 $isExisting = true;
 	  }
@@ -47,7 +47,7 @@
    function checkHashBL() {
 	  $isCorrect = false;	  
 	  // If the user exists
-	  if ( checkUserIdDAL() )
+	  if ( checkUserIdDAL($_POST['userId']) )
 	  {
 	    // Get the hash corresponding to the userId from the database
 	    $hash = getHashDAL($_POST['userId']);
@@ -64,8 +64,9 @@
    function connectBL() {
 	  $isConnected = "false";
 	  // If the form has been correctly filled
-	  /*if ( !empty($_POST['userId']) && !empty($_POST['hash']) )
+	  if ( !empty($_POST['userId']) && !empty($_POST['hash']) )
 	  {
+	  /*
 	     // If the user exists
 	     if ( checkUserIdBL() )
 	     {
@@ -77,12 +78,12 @@
 			   $_SESSION['userId'] = $_POST['userId'];
 		    }
 	     }
-	  
-	     
+	  */
+	     $_SESSION['userId'] = $_POST['userId'];
+	     echo $_SESSION['userId'];   
 	     //echo 'User '.getUsernameDAL().' is connected';
-	  }*/
-	  $_SESSION['userId'] = $_POST['userId'];
-	  echo $_SESSION['userId'];
+	  }
+	  
 	  echo $isConnected;
    }
    
@@ -103,7 +104,7 @@
 		    // If the SQL succeed
 	        if ( registerDAL($_POST['userId'], $_POST['username'], $_POST['hash']) )
 			{
-               echo "true";
+               $isRegistered = "true";
 			}
 	     }
 	  }  
