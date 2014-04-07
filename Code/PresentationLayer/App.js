@@ -8,6 +8,10 @@ function debug(level, string) {
    }
 }
 
+function hashFunction( x ) {
+   return x;
+}
+
       
 /* Loading the required scripts */
 $.getScript("User.js", debug(3,"User.js loaded"));
@@ -51,6 +55,7 @@ App.prototype.main = function() {
       _customizeView.setCallbacks();
       _registerView.setCallbacks();
       _demandsView.setCallbacks();
+      loginWidget.setCallbacks();
       
       /* Set view switching callbacks */
       $("#MenuElementCustomize").click( function() {
@@ -93,6 +98,10 @@ App.prototype.main = function() {
          
          _demandsView.display();
       });
+      
+      $(".Button").click( function() {
+         loginWidget.display();
+      }
       
       /* The default view is the CustomizeView */
       $("#CustomizeView").show();

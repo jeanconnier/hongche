@@ -32,10 +32,6 @@ LoginWidget.prototype.disconnect = function() {
    debug(2, "Disconnection...");
 }
 
-LoginWidget.prototype.hashFunction = function( x ) {
-   return x;
-}
-
 LoginWidget.prototype.setCallbacks = function() {
    var self = this;
    
@@ -43,7 +39,7 @@ LoginWidget.prototype.setCallbacks = function() {
       var userId = $("#LoginWidgetUserId").val();
       var password = $("#LoginWidgetPassword").val();
       
-      var hash = self.hashFunction( password );
+      var hash = hashFunction( password );
       
       self.connect(userId, hash);
    });
