@@ -18,7 +18,11 @@ DemandsView.prototype.getDemands = function() {
 }
 
 DemandsView.prototype.display = function() {
-   
+   this.getDemands();
+   var htmlList = '';
+   for(var i = 0; i < this._demandsList.length; i++) {
+      htmlList += '<li class="DemandsViewDemandElement">Id='+_demandsList[i].getUserId()+'<br/>'+_demandsList[i].getId()+'<span class="button" id="AnswerDemandButton">Answer</span></li>';
+   }
 }
 
 /* Getters & setters */
@@ -36,7 +40,7 @@ DemandsView.prototype.setPageIndex = function(pageIndex) {
 
 DemandsView.prototype.setCallbacks = function() {
    
-   for(var i = 0; i<this._demandsList.length -1; i++) {
+   for(var i = 0; i < this._demandsList.length -1; i++) {
       x = _demandsList[i];
       $("#AnswerDemandButton"+i).click( function() {
          x.makeAnOffer();

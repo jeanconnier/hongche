@@ -2,14 +2,14 @@
 
 function PersonalView() {
    /* Properties - PRIVATE */
-   this._userId = '';
+   this._user = '';
    this._offersList = new Array();
    this._demandsList = new Array();
 }
 
 
 /* Properties - prototype */
-PersonalView.prototype._userId = '';
+PersonalView.prototype._user = '';
 PersonalView.prototype._offersList = new Array();
 PersonalView.prototype._demandsList = new Array();
 
@@ -23,7 +23,21 @@ PersonalView.prototype.getDemands = function() {
 }
 
 PersonalView.prototype.display = function() {
+   this._user.getDemands();
    
+   var htmlDemandsList = '';
+   var htmlOffersList = '';
+   
+   for(var i = 0; i < this._demandsList.length; i++) {
+      htmlDemandsList += '<li class="PersonalViewDemandElement">Id='+_demandsList[i].getId()+'<br/>Best price:'+_demandsList[i].getBestPrice()+'</li>';
+   }
+   
+   for(var j = 0; i < this._offersList.length; j++) {
+      htmlOffersList += '<li class="PersonalViewOfferElement">Id='+_offersList[j].getId()+'<br/>Your price:'+_offersList[j].getPrice()+''+_offersList[j].getDemand().getBestPrice()+'</li>';
+   }
+   
+   $("#PersonalViewOffersList").html(htmlOffersList);
+   $("#PersonalViewDemandsList").html(htmlDemandsList);
 }
 
 

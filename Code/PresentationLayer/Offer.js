@@ -4,15 +4,15 @@
 function Offer() {
    /* Properties - PRIVATE */
    this._id = '';
-   this._userId = '';
-   this._demandId = '';
+   this._user = '';
+   this._demand = '';
    this._price = 0.0;
 }
 
 /* Properties - prototype */
 Offer.prototype._id = '';
-Offer.prototype._userId = '';
-Offer.prototype._demandId = '';
+Offer.prototype._user = '';
+Offer.prototype._demand = '';
 Offer.prototype._price = '';
 
 /* Methods - prototype*/
@@ -37,15 +37,15 @@ Offer.prototype.acceptDeal = function() {
 }
 
 /* Getters & setters */
-Offer.prototype.getId = function() {
+Offer.prototype.get = function() {
    return this._id ;
 }
 
-Offer.prototype.getUserId = function() {
+Offer.prototype.getUser = function() {
    return this._userId ;
 }
 
-Offer.prototype.getDemandId = function() {
+Offer.prototype.getDemand = function() {
    return this._demandId ;
 }
 
@@ -57,11 +57,11 @@ Offer.prototype.setId = function(id) {
    this._id = id;
 }
 
-Offer.prototype.setUserId = function(userId) {
+Offer.prototype.setUser = function(userId) {
    this._userId = userId;
 }
 
-Offer.prototype.setDemandId = function(demandId) {
+Offer.prototype.setDemand = function(demandId) {
    this._demandId = demandId;
 }
 
