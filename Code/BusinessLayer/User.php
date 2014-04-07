@@ -3,8 +3,7 @@
 
    session_start();
    
-   // Get the name of the function called
-   $_method = $_POST['method'];
+   
    
    // Call the corresponding function
    function User() {
@@ -79,7 +78,7 @@
    // registerBL tests if the userId is already in use, if not the user is created
    function registerBL() {
       // If the user doesn't exist
-      if( !checkUserIdBL() )
+     /* if( !checkUserIdBL() )
 	  {
 	     registerBL($_POST['userId'], $_POST['username'], $_POST['hash']);
          echo "User created";
@@ -87,7 +86,7 @@
 	  else
 	  {
 	     echo "userId already in use";
-	  }
+	  }*/
 	  echo "Register";
    }
    
@@ -108,7 +107,7 @@
    
    // getDemandsBL returns all the demands of the user
    function getDemandsBL() {
-      demands = getDemandsDAL($_POST['userId']);
+      $demands = getDemandsDAL($_POST['userId']);
       echo "Les demandes sont ...";
    }
 ?>
