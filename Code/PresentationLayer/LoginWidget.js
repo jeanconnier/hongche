@@ -31,9 +31,9 @@ LoginWidget.prototype.connect = function(username, hash) {
    
    $.ajax({
        type: 'POST',
-       url: '../BusinessLayer/landing.php',
+       url: businessLogicLayerUrl,
        data: {
-         class:"LoginWidget",
+         class:"User",
          method:"connect",
          username:username,
          hash:hash

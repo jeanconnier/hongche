@@ -1,6 +1,8 @@
 /* App script */
 
+/* Global variables */
 var debugLevel = 4;
+var businessLogicLayerUrl = "../BusinessLayer/landing.php";
 
 function debug(level, string) {
    if(debugLevel > level) {
