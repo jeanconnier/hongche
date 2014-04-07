@@ -10,6 +10,10 @@
 		 connectBL();
 		 break;
 		 
+		 case "disconnect":
+		 disconnectBL();
+		 break;
+		 
 		 case "getDemands":
 		 getDemandsBL();
 		 break;
@@ -74,19 +78,23 @@
 	  return $isConnected;
    }
    
+   function disconnectBL() {
+      echo 'UserId : '.$_SESSION['userId'];
+	  session_destroy();
+   }
+   
    // registerBL tests if the userId is already in use, if not the user is created
    function registerBL() {
       // If the user doesn't exist
-     /* if( !checkUserIdBL() )
+      if( !checkUserIdBL() )
 	  {
 	     registerBL($_POST['userId'], $_POST['username'], $_POST['hash']);
-         echo "User created";
+         echo "true";
 	  }
 	  else
 	  {
-	     echo "userId already in use";
-	  }*/
-	  echo $_SESSION['userId'];
+	     echo "false";
+	  }
 	  echo "Register";
    }
    
