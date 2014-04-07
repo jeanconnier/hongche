@@ -17,11 +17,11 @@ User.prototype._hash = '';
 
 /* Methods - prototype*/
 User.prototype.connect = function() {
-
+   
 }
 
 User.prototype.disconnect = function() {
-
+   
 }
 
 User.prototype.register = function() {

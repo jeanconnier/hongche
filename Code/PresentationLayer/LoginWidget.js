@@ -19,6 +19,7 @@ LoginWidget.prototype.display = function() {
    if(this._isConnected) {
       $("#LoginWidgetUnauthentifiedUser").hide();
       $("#LoginWidgetAuthentifiedUser").show();
+      $("#LoginWidgetUsername").html( this._user.getName() );
    }
    else {
       $("#LoginWidgetUnauthentifiedUser").show();
@@ -26,8 +27,9 @@ LoginWidget.prototype.display = function() {
    }
 }
 
-LoginWidget.prototype.connect = function(username, hash) {
+LoginWidget.prototype.connect = function(userId, hash) {
    this._isConnected = true;
+   self = this;
    
    $.ajax({
        type: 'POST',
@@ -35,11 +37,16 @@ LoginWidget.prototype.connect = function(username, hash) {
        data: {
          class:"User",
          method:"connect",
-         username:username,
+         userId:userId,
          hash:hash
        },
        success: function ( data ) {
-           alert('success!' + data);
+       
+         self._user.setHash( hash );
+         self._user.setName( data );
+         self._user.setId( userId );
+         
+         alert( userId + 'success!' + data);
        },
        error: function () {
            alert('error');
@@ -49,8 +56,26 @@ LoginWidget.prototype.connect = function(username, hash) {
    debug(1, "Connection...");
 }
 
-LoginWidget.prototype.disconnect = function() {
+LoginWidget.prototype.disconnect = function( userId ) {
    this._isConnected = false;
+   self = this;
+   
+   $.ajax({
+       type: 'POST',
+       url: businessLogicLayerUrl,
+       data: {
+         class:"User",
+         method:"disconnect",
+         userId:userId
+       },
+       success: function ( data ) {
+         alert( userId + 'success!' + data);
+       },
+       error: function () {
+         alert('error');
+       }
+   });
+   
    debug(2, "Disconnection...");
 }
 
@@ -67,7 +92,7 @@ LoginWidget.prototype.setCallbacks = function() {
    });
    
    $("#DisconnectButton").click( function() {
-      self.disconnect();
+      self.disconnect( this._user.getId() );
    });
    
    $(".Button").click( function() {

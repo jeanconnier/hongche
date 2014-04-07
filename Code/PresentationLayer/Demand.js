@@ -34,7 +34,12 @@ Demand.prototype.secureDeal= function() {
    
 }
 
-Demand.prototype.makeAnOffer = function() {
+Demand.prototype.makeAnOffer = function( price ) {
+   var offer = new Offer();
+   offer.setDemand( this );
+   offer.setUser( this._user );
+   offer.setPrice( price );
+   offer.create();
    
 }
 

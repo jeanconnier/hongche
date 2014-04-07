@@ -5,6 +5,12 @@ function PersonalView() {
    this._user = '';
    this._offersList = new Array();
    this._demandsList = new Array();
+   
+   /* Constructor */
+   if( loginWidget._isConnected ) {
+      _user = loginWidget._user;
+   }
+   
    debug(1, "PersonalView instanciated");
 }
 
@@ -15,30 +21,37 @@ PersonalView.prototype._offersList = new Array();
 PersonalView.prototype._demandsList = new Array();
 
 /* Methods - prototype*/
-PersonalView.prototype.getOffers = function() {
+/*PersonalView.prototype.getOffers = function() {
    
 }
 
 PersonalView.prototype.getDemands = function() {
    
-}
+}*/
 
 PersonalView.prototype.display = function() {
-   this._user.getDemands();
-   
-   var htmlDemandsList = '';
-   var htmlOffersList = '';
-   
-   for(var i = 0; i < this._demandsList.length; i++) {
-      htmlDemandsList += '<li class="PersonalViewDemandElement">Id='+_demandsList[i].getId()+'<br/>Best price:'+_demandsList[i].getBestPrice()+'</li>';
+   if( loginWidget._isConnected ) {
+      if(this._user == '') {
+         this._user = loginWidget._user;
+      }
+      
+      this._demandsList = this._user.getDemands();
+      this._offersList = this._user.getOffers();
+      
+      var htmlDemandsList = '';
+      var htmlOffersList = '';
+      
+      for(var i = 0; i < this._demandsList.length; i++) {
+         htmlDemandsList += '<li class="PersonalViewDemandElement">Id='+_demandsList[i].getId()+'<br/>Best price:'+_demandsList[i].getBestPrice()+'</li>';
+      }
+      
+      for(var j = 0; i < this._offersList.length; j++) {
+         htmlOffersList += '<li class="PersonalViewOfferElement">Id='+_offersList[j].getId()+'<br/>Your price:'+_offersList[j].getPrice()+''+_offersList[j].getDemand().getBestPrice()+'</li>';
+      }
+      
+      $("#PersonalViewOffersList").html(htmlOffersList);
+      $("#PersonalViewDemandsList").html(htmlDemandsList);
    }
-   
-   for(var j = 0; i < this._offersList.length; j++) {
-      htmlOffersList += '<li class="PersonalViewOfferElement">Id='+_offersList[j].getId()+'<br/>Your price:'+_offersList[j].getPrice()+''+_offersList[j].getDemand().getBestPrice()+'</li>';
-   }
-   
-   $("#PersonalViewOffersList").html(htmlOffersList);
-   $("#PersonalViewDemandsList").html(htmlDemandsList);
 }
 
 

@@ -16,8 +16,31 @@ CustomizeView.prototype.display = function() {
 }
 
 CustomizeView.prototype.makeADemand = function() {
-   var colour = $("#CustomizeViewColour option:selected").val();
+   var brand = $("#CustomizeViewBrand option:selected").val();
    var type = $("#CustomizeViewType option:selected").val();
+   var colour = $("#CustomizeViewColour option:selected").val();
+   var motor = $("#CustomizeViewMotor option:selected").val();
+   var condition = $("#CustomizeViewCondition option:selected").val();
+   
+   $.ajax({
+       type: 'POST',
+       url: businessLogicLayerUrl,
+       data: {
+         class:"Demand",
+         method:"create",
+         brand:brand,
+         type:type,
+         colour:colour,
+         motor:motor,
+         condition:condition
+       },
+       success: function ( data ) {
+           alert('success!' + data);
+       },
+       error: function () {
+           alert('error');
+       }
+   });
    
    debug(1, "Demande - couleur: " + colour + " & type: " + type + ".");
 }
