@@ -3,13 +3,13 @@
 /* Class declaration */
 function DemandsView() {
    /* Properties - PRIVATE */
-   this._pageIndex = 0;
+   //this._pageIndex = 0;
    this._demandsList = new Array();
 }
 
 
 /* Properties - prototype */
-DemandsView.prototype._pageIndex = 0;
+//DemandsView.prototype._pageIndex = 0;
 DemandsView.prototype._demandsList = newArray();
 
 /* Methods - prototype*/
@@ -35,17 +35,15 @@ DemandsView.prototype.setPageIndex = function(pageIndex) {
 }
 
 DemandsView.prototype.setCallbacks = function() {
-   var self = this;
    
    for(var i = 0; i<this._demandsList.length -1; i++) {
-      
+      x = _demandsList[i];
+      $("#AnswerDemandButton"+i).click( function() {
+         x.makeAnOffer();
+      });
    }
-   
-   for (var i = 0; i < lines_number - 1; i++) {
-                data += '<li class="public_line">' + lines[i] + '</li>';
-            }
-   });
 }
+
 /*
 DemandsView.prototype.setDemandsList = function(demandsList) {
    this._demandsList = demandsList;
