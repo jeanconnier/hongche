@@ -12,9 +12,6 @@ function debug(level, string) {
    }
 }
 
-function passwordFunction( x ) {
-   return x;
-}
 
 $(document) .ready(function () {
     /* Loading the required scripts */

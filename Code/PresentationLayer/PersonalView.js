@@ -65,7 +65,6 @@ PersonalView.prototype.display = function() {
          offersList = data.split(";");
          for(var i = 0; i < offersList.length - 1; i++) {
             currentElementArray = offersList[i].split(",");
-            alert(currentElementArray.length);
             //htmlOffersList += '<table><tr><td>Offer ID</td><td>'+currentElementArray[0]+'</td></tr><tr><td>Demand ID</td><td>'+currentElementArray[1]+'</td></tr></table>';
             htmlOffersList += '<li class="PersonalViewDemandElement"><table><tr><td>Offer ID</td><td>'+currentElementArray[0]+'</td><tr><td>Demand ID</td><td>'+currentElementArray[1]+'</td></tr><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td>Buyer ID</td><td>'+currentElementArray[7]+'</td></tr><tr><td class="YourPrice">Your price</td><td>'+currentElementArray[9]+'</td></tr></table></li>';
          }

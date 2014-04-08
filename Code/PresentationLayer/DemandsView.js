@@ -28,28 +28,64 @@ DemandsView.prototype.getDemands = function() {
 }
 
 DemandsView.prototype.display = function() {
-   $("#PersonalViewOffersList").html('');
+   $("#DemandsViewDemandsList").html('');
    
    if( loginWidget._isConnected ) {
-      if(this._user == '') {
+      //if(this._user == '') {
          this._user = loginWidget.getUser();
-      }
+      //}
       
       var promiseDemands = this.getDemands();
       
       promiseDemands.success( function(data) {
          var htmlDemandsList = '';
          demandsList = data.split(";");
-         for(var i = 0; i < demandsList.length - 1; i++) {
+         var i = 0;
+         for(i = 0; i < demandsList.length - 1; i++) {
+            currentElementArray = demandsList[i].split(",");
+            var currentElement = new Demand();
+            //alert(currentElementArray[0] + " " + currentElementArray[1]);
+            currentElement.setId( currentElementArray[0] );
+            currentElement.setUser( currentElementArray[1] );
+            // debug(2,"yoh");
+            //alert(currentElement.getBestOffer());
+            htmlDemandsList += '<li class="DemandsViewDemandElement"><table><tr><td>Id</td><td id="DemandIdData'+i+'">'+currentElementArray[0]+'</td><tr><td >User ID</td><td  id="UserId'+i+'">'+currentElementArray[1]+'</td></tr><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td class="BestPrice">Best price</td><td>'+currentElementArray[0]+'</td></tr></table></li><input type="text" id="AnswerDemandPrice'+i+'"/><span class="Button AnswerDemandButton" buttonIndex="'+i+'">Answer!</span>';
+            
+            var self = this;
+            var userId = loginWidget.getUser().getId();
+            
             
          }
-         
-         $("#PersonalViewDemandsList").html(htmlDemandsList);
+            
+         debug(2, "AnswerDemandButton callback set?");
+         $(document).on('click', ".AnswerDemandButton", function(){ 
+            var index = $(this).attr("buttonIndex");
+            var answerDemandPrice = $("#AnswerDemandPrice"+index).val();
+            var demandId = $("#DemandIdData"+index).text();
+            var userId = $("#UserId"+index).text();
+            
+            debug(2, index+ " userId:" + userId + " demandId:" + demandId + " price:" + answerDemandPrice);
+            $.ajax({
+                type: 'POST',
+                url: businessLogicLayerUrl,
+                data: {
+                  class:"Offer",
+                  method:"create",
+                  userId:userId,
+                  demandId:demandId,
+                  price:answerDemandPrice
+                },
+                success: function ( data ) {
+                  debug(2, 'success!' + data);
+                },
+                error: function () {
+                  debug(2,'error');
+                }
+            });
+         });
+         debug(2, "AnswerDemandButton callback set!");
+         $("#DemandsViewDemandsList").html(htmlDemandsList);
       });
-      var htmlList = '';
-      for(var i = 0; i < this._demandsList.length; i++) {
-         htmlList += '<li class="DemandsViewDemandElement">Id='+_demandsList[i].getUser().getId()+'<br/>'+_demandsList[i].getId()+'<span class="button" id="AnswerDemandButton">Answer</span></li>';
-      }
    }
 }
 
