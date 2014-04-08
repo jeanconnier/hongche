@@ -50,7 +50,7 @@
 	  if ( checkUserIdDAL($_POST['userId']) )
 	  {
 	    // Create the hash corresponding to the input password with the Blowfish algorithm
-	    $inputHash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+	    $inputHash = hash($_POST['password']);
 	    // Get the hash corresponding to the userId from the database
 	    $databaseHash = getHashDAL($_POST['userId']);
 		// If the hash is correct
@@ -98,7 +98,7 @@
          // If the user ID is available
          if( !checkUserIdBL() )
          {
-            $hash = password_hash($_POST['password'],PASSWORD_BCRYPT);
+            $hash = hash($_POST['password']);
             // If the SQL succeed
             if ( registerDAL($_POST['userId'], $_POST['username'], $hash) )
             {
