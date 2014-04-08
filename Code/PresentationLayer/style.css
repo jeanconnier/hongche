@@ -60,7 +60,7 @@ span
    left: 2%;
    top: 12%;
    width: 72%;
-   height: 16%;
+   height: 56%;
    font-size:80%;
    text-wrap:auto;
    overflow:scroll;
@@ -76,7 +76,7 @@ span
    left: 76%;
    top: 2%;
    width: 22%;
-   height: 26%;
+   height: 66%;
 }
 
 #LoginWidgetAuthentifiedUser
@@ -93,11 +93,10 @@ span
 {
    background-color: #FF9900;
    padding: 4px;
-   
    display: block;
    position: absolute;
    left: 2%;
-   top: 30%;
+   top: 70%;
    width: 96%;
    height: 76%;
 }
