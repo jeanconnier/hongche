@@ -85,9 +85,15 @@
    
    // Disconnect the user by cleaning the session variable
    function disconnectBL() {
-      
-      echo 'Bye '.$_SESSION['userId'];
-      session_destroy();
+      if ( !empty($_SESSION['userId']) )
+      {
+         echo 'Bye '.$_SESSION['userId'];
+         session_destroy();
+      }
+      else
+      {
+         echo "notConnected";
+      }
    }
    
    // registerBL tests if the userId is already in use, if not the user is created
