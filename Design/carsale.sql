@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS `demand` (
   `Type` varchar(20) NOT NULL,
   `Colour` varchar(20) NOT NULL,
   `Motor` varchar(20) NOT NULL,
-  `Condition` varchar(20) NOT NULL,
+  `State` varchar(20) NOT NULL,
+  `isSecured` int(11) NOT NULL,
   PRIMARY KEY (`DemandId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
