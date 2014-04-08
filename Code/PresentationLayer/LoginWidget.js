@@ -3,7 +3,7 @@
 function LoginWidget() {
    /* Properties - PRIVATE */
    this._isConnected = false;
-   this._user = '';
+   this._user = null;
    
    debug(1, "LoginWidget instanciated");
 }
@@ -11,7 +11,7 @@ function LoginWidget() {
 
 /* Properties - prototype */
 LoginWidget.prototype._isConnected = false;
-LoginWidget.prototype._user = '';
+LoginWidget.prototype._user = null;
 
 /* Methods - prototype*/
 LoginWidget.prototype.display = function() {
@@ -28,7 +28,7 @@ LoginWidget.prototype.display = function() {
 }
 
 LoginWidget.prototype.connect = function(userId, password) {
-   this._isConnected = true;
+   
    var self = this;
    
    $.ajax({
@@ -42,9 +42,14 @@ LoginWidget.prototype.connect = function(userId, password) {
        },
        success: function ( data ) {
          self._user = new User();
-         self._user.setName( data );
-         self._user.setId( userId );
          
+         if( data === "true" )
+         {
+            self._user.setName( userId + " la science" );
+            self._user.setId( userId );
+            self._isConnected = true;
+            self.display();
+         }
          debug(2, 'success!' + data);
          //debug(2,"success");
        },
@@ -75,6 +80,8 @@ LoginWidget.prototype.disconnect = function( userId ) {
          debug(2,'error');
        }
    });
+   
+   this._user = null;
    
    debug(2, "Disconnection...");
 }

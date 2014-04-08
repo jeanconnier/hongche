@@ -81,7 +81,8 @@ span
 
 #LoginWidgetAuthentifiedUser
 {
-
+   display:block;
+   width:auto;
 }
 
 #LoginWidgetUnauthentifiedUser
@@ -148,9 +149,16 @@ span
 
 }
 
-#PersonalView
+.PersonalViewDemandElement table
 {
+   border: 1px solid red;
+   border-collapse:collapse;
+   padding:2px;
+}
 
+.PersonalViewDemandElement ul li
+{
+   list-style-type: none;
 }
 
 .Button

@@ -56,6 +56,6 @@ Demand.prototype.setId = function(id) {
    this._id = id;
 }
 
-Demand.prototype.setUser = function(userId) {
-   this._userId = user;
+Demand.prototype.setUser = function(user) {
+   this._user = user;
 }

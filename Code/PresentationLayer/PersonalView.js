@@ -30,9 +30,12 @@ PersonalView.prototype.draw = function(data) {
 }
 
 PersonalView.prototype.display = function() {
+   $("#PersonalViewDemandsList").html('');
+   $("#PersonalViewOffersList").html('');
+   
    if( loginWidget._isConnected ) {
       if(this._user == '') {
-         this._user = loginWidget._user;
+         this._user = loginWidget.getUser();
       }
       
       var promiseDemands = this._user.getDemands();
@@ -40,14 +43,13 @@ PersonalView.prototype.display = function() {
       
       promiseDemands.success( function(data) {
          var htmlDemandsList = '';
-         demandsList = data.split(",");
-         debug(2,demandsList[0]);
-         var currentElement = null;
-         for(var i = 0; i < demandsList.length; i++) {
-            /*currentElement = new Demand();
-            currentElement.setId( demandsList[0] );
-            currentElement.setUser( loginWidget.getUser() );*/
-            htmlDemandsList += '<li class="PersonalViewDemandElement">Id='+demandsList[i]+'<br/>Best price:'+demandsList[i]+'</li>';
+         demandsList = data.split(";");
+         for(var i = 0; i < demandsList.length - 1; i++) {
+            currentElementArray = demandsList[i].split(",");
+            var currentElement = new Demand();
+            currentElement.setId( currentElementArray[0] );
+            currentElement.setUser( loginWidget.getUser() );
+            htmlDemandsList += '<li class="PersonalViewDemandElement"><table><tr><td>Id</td><td>'+currentElement.getId()+'</td><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td id="BestPrice">Best price</td><td>'+currentElement.getBestOffer()+'</td></tr></table></li>';
          }
          
          $("#PersonalViewDemandsList").html(htmlDemandsList);
@@ -85,6 +87,10 @@ PersonalView.prototype.display = function() {
       
       $("#PersonalViewOffersList").html(htmlOffersList);
       $("#PersonalViewDemandsList").html(htmlDemandsList);*/
+   }
+   else
+   {
+      alert("Please log in...");
    }
 }
 
