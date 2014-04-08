@@ -53,6 +53,12 @@
 	I: demandId
 	O: return a bool
 	*/
+   
+   /*
+	function getDemandInfoDAL($did)
+	I: demandId
+	O: return all the information about the demand
+	*/
 
 //create a new row in demand
 //given the value of demandid, userid, and the options of the car
@@ -306,7 +312,7 @@
    
    //return the information of a demand 
 	
-	function getDemandInfoDAL($demandId){
+	function getDemandInfoDAL($did){
 	try
 	{
 		$bdd = new PDO('mysql:host=localhost;dbname=carsale', 'root', '');
