@@ -15,7 +15,7 @@
 		 break;
 		 
 		 case "getDemands":
-		 getAllDemandsFromUserBL();
+		 getDemandsBL();
 		 break;
 		 
 		 case "getOffers":
@@ -131,12 +131,12 @@
    }
    
    // getAllDemandsFromUserBL returns all the demands made by the user
-   function getAllDemandsFromUserBL() {
-      echo getAllDemandsFromUserDAL($_POST['userId']);
+   function getDemandsBL() {
+      echo getDemandsDAL($_POST['userId']);
    }
    
    // getOffersBL returns all the offers made by the user
    function getOffersBL() {
-      echo getAllOffersFromUserDAL($_POST['userId']);
+      echo getOffersDAL($_POST['userId']);
    }
 ?>

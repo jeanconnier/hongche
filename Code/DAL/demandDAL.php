@@ -46,7 +46,13 @@
 	I: demandid
 	O: return true if the deal is secured
 	*/
-
+	
+	/*
+	function setSecured($did)
+	secure a deal
+	I: demandId
+	O: return a bool
+	*/
 ?>
 
 <?php

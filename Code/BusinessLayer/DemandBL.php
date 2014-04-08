@@ -21,7 +21,7 @@
          break;
          
          case "getDemands":
-         getDemandsBL();
+         getAllDemandsBL();
          break;
          
          case "searchDemand":
@@ -93,7 +93,7 @@
    }
    
    // getDemandsBL returns the list of all the demands in the database
-   function getDemandsBL() {      
+   function getAllDemandsBL() {      
       echo getAllDemandsDAL();
    }
    
