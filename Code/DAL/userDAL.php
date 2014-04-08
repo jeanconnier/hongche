@@ -281,7 +281,7 @@
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret .$temp['OfferId'] . "," . $temp['DemandId'] .",". getDemandInfoDAL($temp['DemandId'])."," . $temp['UserId'] . "," . $temp['Price'] . ";";
+		$ret = $ret .$temp['OfferId'] . "," . $temp['DemandId'] .",". getDemandInfoDAL($temp['DemandId'])."," . $temp['UserId'] . "," . $temp['Price'];
 	}
 	
 	$req->closeCursor();

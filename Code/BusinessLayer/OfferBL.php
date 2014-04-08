@@ -26,17 +26,25 @@
    function createOfferBL() {
       if ( !empty($_POST['demandId'])  && !empty($_POST['userId']) && !empty($_POST['price']) )
       {
-         $offerId = $_POST['demandId'].$_SESSION['userId'].$_POST['price'];
-		 // If the SQL request is successful
-         if( createOfferDAL($offerId, $_POST['demandId'], $_SESSION['userId'], $_POST['price']) )
-	     {
-	        echo "true";
-	     }
-		 // If the SQL request fails
-	     else
-	     {
-	        echo "sqlError";
-	     }
+         // If the buyer and the seller are different persons
+         if ( $_SESSION['userId'] != $_POST['userId'] )
+         {
+            $offerId = $_POST['demandId'].$_SESSION['userId'].$_POST['price'];
+            // If the SQL request is successful
+            if( createOfferDAL($offerId, $_POST['demandId'], $_SESSION['userId'], $_POST['price']) )
+            {
+               echo "true";
+            }
+            // If the SQL request fails
+            else
+            {
+               echo "sqlError";
+            }
+         }
+         else
+         {
+            echo "sameUser";
+         }
 	  }
 	  // If the form isn't correctly filled
 	  else
