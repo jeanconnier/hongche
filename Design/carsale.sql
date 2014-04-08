@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 08, 2014 at 08:19 AM
+-- Generation Time: Apr 08, 2014 at 09:32 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -44,16 +44,16 @@ CREATE TABLE IF NOT EXISTS `demand` (
 -- Dumping data for table `demand`
 --
 
-INSERT INTO `demand` (`DemandId`, `UserId`, `Brand`, `Type`, `Colour`, `Motor`, `State`) VALUES
-('1', '13', 'Volkswagen', 'sedan', 'green', 'oil', 'second-hand'),
-('23211396886646', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New'),
-('23211396934439', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New'),
-('23211396935000', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New'),
-('23211396935004', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New'),
-('23211396935134', '2321', 'Dongfeng', 'Sport', 'Black', 'Oil', 'New'),
-('jean1396886895', 'jean', 'Toyota', 'Minivan', 'Black', 'Oil', 'New'),
-('michel1396882977', 'michel', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New'),
-('michel1396883018', 'michel', 'Saab', 'Minivan', 'Green', 'Oil', 'Second-hand');
+INSERT INTO `demand` (`DemandId`, `UserId`, `Brand`, `Type`, `Colour`, `Motor`, `State`, `isSecured`) VALUES
+('1', '13', 'Volkswagen', 'sedan', 'green', 'oil', 'second-hand', 0),
+('23211396886646', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New', 0),
+('23211396934439', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New', 0),
+('23211396935000', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New', 0),
+('23211396935004', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New', 0),
+('23211396935134', '2321', 'Dongfeng', 'Sport', 'Black', 'Oil', 'New', 0),
+('jean1396886895', 'jean', 'Toyota', 'Minivan', 'Black', 'Oil', 'New', 0),
+('michel1396882977', 'michel', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New', 0),
+('michel1396883018', 'michel', 'Saab', 'Minivan', 'Green', 'Oil', 'Second-hand', 0);
 
 -- --------------------------------------------------------
 
@@ -96,13 +96,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`UserId`, `UserName`, `Hash`) VALUES
-('13', 'Po', 'Po1'),
-('2321', '3245', 'jy'),
-('63', 'Jean', 'Jean1'),
-('94', 'Max', 'Max1'),
-('dfpoijg', 'PierreJacques', 'uy'),
-('jean', 'Jean', '1'),
-('pierrejacques', 'PierreJacques', 'uy');
+('paul', 'Paul', '0ab8704c27fc675fc61de40329a38bb3ad81aadf8c03da1a1e9e7821fee1d675ac3c22d83746097e8a7932923067c615c166'),
+('pierre', 'Pierre', '2643b42c44b11a47e93bb68a62bc370fbb499b40feabd368041e0abe18d51578572cb6a65fc1790cf1af0a5f97a9d9eb4c05');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
