@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `demand` (
 -- Dumping data for table `demand`
 --
 
-INSERT INTO `demand` (`DemandId`, `UserId`, `Brand`, `Type`, `Colour`, `Motor`, `Condition`) VALUES
+INSERT INTO `demand` (`DemandId`, `UserId`, `Brand`, `Type`, `Colour`, `Motor`, `State`) VALUES
 ('1', '13', 'Volkswagen', 'sedan', 'green', 'oil', 'second-hand'),
 ('23211396886646', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New'),
 ('23211396934439', '2321', 'Dongfeng', 'Sedan', 'Black', 'Oil', 'New'),
