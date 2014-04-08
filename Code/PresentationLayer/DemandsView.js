@@ -15,6 +15,7 @@ DemandsView.prototype._demandsList = new Array();
 /* Methods - prototype*/
 DemandsView.prototype.getDemands = function() {
    debug(2,"getDemands");
+   
 }
 
 DemandsView.prototype.display = function() {

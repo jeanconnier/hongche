@@ -189,7 +189,8 @@ span
 
 
 
-.Button {
+.Button 
+{
 	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
 	box-shadow:inset 0px 1px 0px 0px #f29c93;
@@ -220,9 +221,8 @@ span
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #b23e35;
-}.Button:hover {
+}
+.Button:hover 
+{
 	background-color:#ce0100;
-}.Button:active {
-	position:relative;
-	top:1px;
 }

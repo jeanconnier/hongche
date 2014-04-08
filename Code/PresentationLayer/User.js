@@ -33,7 +33,23 @@ User.prototype.getOffers = function() {
 }
 
 User.prototype.getDemands = function() {
-
+   debug(2, "Getting "+this._id+"'s demands...");
+   self = this;
+   $.ajax({
+      type: 'POST',
+      url: businessLogicLayerUrl,
+      data: {
+         class:"User",
+         method:"getDemands",
+         userId:self._id
+      },
+      success: function( data ) {
+         debug(2, "success" + data );
+      }
+      error: function() {
+         debug(2, "error");
+      }
+   });
 }
 
 /* Getters & setters */
