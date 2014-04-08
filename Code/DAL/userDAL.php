@@ -1,5 +1,4 @@
 <?php
-   include('demandDAL.php');
 	/*
 	function registerDAL($uid, $uname, $hpwd){
 	create a new row in table user
