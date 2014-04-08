@@ -79,17 +79,15 @@
 			   $_SESSION['userId'] = $_POST['userId'];
 		    }
 	     }
-	     $_SESSION['userId'] = $_POST['userId'];
-	     echo 'User '.getUsernameDAL().' is connected';
 	  }
-	  
 	  echo $isConnected;
    }
    
    // Disconnect the user by cleaning the session variable
    function disconnectBL() {
+      
       echo 'Bye '.$_SESSION['userId'];
-	  session_destroy();
+      session_destroy();
    }
    
    // registerBL tests if the userId is already in use, if not the user is created
@@ -97,33 +95,33 @@
       $isRegistered = "false";
       if ( !empty($_POST['userId']) && !empty($_POST['username']) && !empty($_POST['password']) )
       {
-	     // If the user ID is available
+         // If the user ID is available
          if( !checkUserIdBL() )
-	     {
-		    $hash = password_hash($_POST['password'],PASSWORD_BCRYPT);
-		    // If the SQL succeed
-	        if ( registerDAL($_POST['userId'], $_POST['username'], $hash) )
-			{
+         {
+            $hash = password_hash($_POST['password'],PASSWORD_BCRYPT);
+            // If the SQL succeed
+            if ( registerDAL($_POST['userId'], $_POST['username'], $hash) )
+            {
                $isRegistered = "true";
-			}
-	     }
-	  }  
-	  echo $isRegistered;
+            }
+         }
+      }  
+      echo $isRegistered;
    }
    
    // getUsernameBL returns the username corresponding to the userId
    function getUsernameBL() {
       // If the user exists
       if ( checkUserIdBL() )
-	  {
-	     // Get the username from the database
+      {
+         // Get the username from the database
          $username = getUsernameDAL($_SESSION['userId']);
-		 echo $username;
+         echo $username;
       }
-	  else
-	  {
-	     echo "User unregistered";
-	  }
+      else
+      {
+         echo "User unregistered";
+      }
    }
    
    // getDemandsBL returns all the demands of the user

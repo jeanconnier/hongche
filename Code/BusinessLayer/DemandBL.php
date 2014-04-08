@@ -5,20 +5,20 @@
    
       switch ( $_POST['method'] ) {
          case "create":
-		 createDemandBL();
-	     break;
+         createDemandBL();
+         break;
 	  
-	     case "delete":
-		 deleteDemandBL();
-	     break;
+         case "delete":
+         deleteDemandBL();
+         break;
 	  
-	     case "getBestOffer":
-		 getBestOfferBL();
-	     break;
+         case "getBestOffer":
+         getBestOfferBL();
+         break;
 	  
-	     case "secureDeal":
-		 secureDealBL();
-	     break;
+         case "secureDeal":
+         secureDealBL();
+         break;
       }
    }
    
@@ -59,11 +59,29 @@
    }
    
    function getBestOfferBL() {
-      echo getBestOfferDAL($_POST['demandID']);
+      echo getBestOfferDAL($_POST['demandId']);
    }
    
+   // secureDealBL returns true if the deal is secured, false if the database access failed and error if the deal is already secured
    function secureDealBL() {
-   
+      if ( !isDemandSecuredDAL($_POST['demandId']) )
+      {
+         {
+            if ( secureDealDAL($_POST['demandId']) )
+            {
+               echo "true";
+            }
+            else
+            {
+               echo "false";
+            }
+         }
+      }
+      else
+      {
+         echo "error";
+      }
    }
+   
    
 ?>

@@ -5,14 +5,16 @@
    
    switch ($_POST['class']) {
       case "User":
-		 User();
-         break;
+      User();
+      break;
+      
       case "Offer":
-		 Offer();
-         break;
+      Offer();
+      break;
+      
       case "Demand":
-	     Demand();
-         break;
+      Demand();
+      break;
    }
    
 ?>
