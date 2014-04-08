@@ -243,7 +243,7 @@
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret . $temp['DemandId'] . ", " . $temp['UserId'] . ", " . $temp['Brand'] . ", " . $temp['Type'] . ", " . $temp['Colour'] . ", " . $temp['Motor'] . ", " . $temp['State'] . "; ";
+		$ret = $ret . $temp['DemandId'] . "," . $temp['UserId'] . "," . $temp['Brand'] . "," . $temp['Type'] . "," . $temp['Colour'] . "," . $temp['Motor'] . "," . $temp['State'] . ";";
 	}
 	
 	$req->closeCursor();
@@ -310,7 +310,7 @@
 	return $bret;
 	}
    
-   //return the information of a demand 
+   //return all the information of a demand 
 	
 	function getDemandInfoDAL($did){
 	try
@@ -322,13 +322,13 @@
 		die('Error : '.$e->getMessage());
 	}
 	
-	$req = $bdd->query('SELECT * FROM demand WHERE DemandId = ?');
+	$req = $bdd->prepare('SELECT * FROM demand WHERE DemandId = ?');
    $req->execute(array($did));
 	$ret = "";
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret . $temp['Brand'] . ", " . $temp['Type'] . ", " . $temp['Colour'] . ", " . $temp['Motor'] . ", " . $temp['State'] . "; ";
+		$ret = $ret . $temp['Brand'] . "," . $temp['Type'] . "," . $temp['Colour'] . "," . $temp['Motor'] . "," . $temp['State'] . "," . $temp['UserId'] . ";";
 	}
 	
 	$req->closeCursor();

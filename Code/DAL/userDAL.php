@@ -1,4 +1,5 @@
 <?php
+   include('demandDAL.php');
 	/*
 	function registerDAL($uid, $uname, $hpwd){
 	create a new row in table user
@@ -248,7 +249,7 @@
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret . $temp['DemandId'] . ", " . $temp['UserId'] . ", " . $temp['Brand'] . ", " . $temp['Type'] . ", " . $temp['Colour'] . ", " . $temp['Motor'] . ", " . $temp['State'] . "; ";
+		$ret = $ret . $temp['DemandId'] . "," . $temp['UserId'] . "," . $temp['Brand'] . "," . $temp['Type'] . "," . $temp['Colour'] . "," . $temp['Motor'] . "," . $temp['State'] . ";";
 	}
 	
 	$req->closeCursor();
@@ -281,7 +282,7 @@
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret . $temp['OfferId'] . ", " . $temp['DemandId'] . ", " . $temp['UserId'] . ", " . $temp['Price'] . "; ";
+		$ret = $ret .$temp['OfferId'] . "," . $temp['DemandId'] .",". getDemandInfoDAL($temp['DemandId'])."," . $temp['UserId'] . "," . $temp['Price'] . ";";
 	}
 	
 	$req->closeCursor();
