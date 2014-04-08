@@ -43,7 +43,6 @@ LoginWidget.prototype.connect = function(userId, password) {
        },
        success: function ( data ) {
          self._user = new User();
-         self._user.setpassword( password );
          self._user.setName( data );
          self._user.setId( userId );
          
