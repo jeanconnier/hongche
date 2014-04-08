@@ -14,7 +14,7 @@ DemandsView.prototype._demandsList = new Array();
 
 /* Methods - prototype*/
 DemandsView.prototype.getDemands = function() {
-   alert("getDemands");
+   debug(2,"getDemands");
 }
 
 DemandsView.prototype.display = function() {
@@ -42,7 +42,7 @@ DemandsView.prototype.setPageIndex = function(pageIndex) {
 
 */
 DemandsView.prototype.sayHello = function() {
-   alert("hello");
+   debug(2,"hello");
 }
 
 DemandsView.prototype.setCallbacks = function() {

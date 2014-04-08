@@ -19,8 +19,7 @@
       <span class="MenuElement" id="MenuElementPersonal">Personal</span>
    </div>
    
-   <div id="TitleBar">
-      <span class="Title">HongChe</span>
+   <div id="ConsoleBar">
    </div>
    
    <div id="LoginWidget">
@@ -41,10 +40,10 @@
       </div>
    </div>
    <div id="Container">
-   
+   <span id="ErrorZone"></span>
    
    <div class="View" id="CustomizeView">
-      Options:
+      <h4>Options:</h4>
       <form action="">
          <label>Brand</label>
          <select id="CustomizeViewBrand">
@@ -55,6 +54,7 @@
             <option value="Volkswagen">Volkswagen</option>
             <option value="Ford">Ford</option>
          </select>
+         <br/>
          <label>Type</label>
          <select id="CustomizeViewType">
             <option value="Sedan">Sedan</option>
@@ -62,6 +62,7 @@
             <option value="Minivan">Minivan</option>
             <option value="Sport">Sport</option>
          </select>
+         <br/>
          <label>Colour</label>
          <select id="CustomizeViewColour">
             <option value="Black">Black</option>
@@ -70,17 +71,20 @@
             <option value="Green">Green</option>
             <option value="Metal">Metal</option>
          </select>
+         <br/>
          <label>Motor</label>
          <select id="CustomizeViewMotor">
             <option value="Oil">Oil</option>
             <option value="Oil">Gasoil</option>
             <option value="Oil">Hybrid</option>
          </select>
-         <label>Condition</label>
-         <select id="CustomizeViewCondition">
+         <br/>
+         <label>State</label>
+         <select id="CustomizeViewState">
             <option value="New">New</option>
             <option value="Second-hand">Second-hand</option>
          </select>
+         <br/>
       </form>
       <span class="Button" id="MakeADemandButton">Make a demand</span>
    </div>
@@ -90,10 +94,13 @@
       <form action="">
          <label>User identifier (login name)</label>
          <input type="text" name="RegisterViewIdentifier" id="RegisterViewIdentifier" />
+         <br/>
          <label>Real name</label>
          <input type="text" name="RegisterViewName" id="RegisterViewName" />
+         <br/>
          <label>Password</label>
          <input type="password" name="RegisterViewPassword" id="RegisterViewPassword" />
+         <br/>
       </form>
       <span class="Button" id="RegistrationButton">Register</span>
    </div>

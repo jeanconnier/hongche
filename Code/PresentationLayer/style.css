@@ -5,12 +5,19 @@ body
    text-decoration: bold;
    padding: 0px;
    margin:0px;
-   word-wrap:break-word;
+	overflow: auto;
+   font-family:Arial;
 }
 
-div, span
+div
 {
    padding: 2px;
+   display:inline-block;
+   width:50%;
+}
+span
+{
+   padding:2px;
 }
 
 #MenuBar
@@ -22,6 +29,8 @@ div, span
    top: 2%;
    width: 72%;
    height: 8%;
+   font-weight:bold;
+	font-style:italic;
 }
 
 .Title
@@ -33,8 +42,9 @@ div, span
 .MenuElement
 {
    font-size:200%;
-   margin-left:10%;
-   margin-right:10%;
+   margin-left:9%;
+   margin-right:9%;
+   height: 100%;
 }
 
 .MenuElement:hover
@@ -42,7 +52,7 @@ div, span
    background-color: #FF9900;
 }
 
-#TitleBar
+#ConsoleBar
 {
    background-color: #EE2222;
    display: block;
@@ -50,7 +60,12 @@ div, span
    left: 2%;
    top: 12%;
    width: 72%;
-   height: 8%;
+   height: 16%;
+   font-size:80%;
+   text-wrap:auto;
+   overflow:scroll;
+   font-style:italic;
+   font-family:Courier New;
 }
 
 #LoginWidget
@@ -61,7 +76,7 @@ div, span
    left: 76%;
    top: 2%;
    width: 22%;
-   height: 18%;
+   height: 26%;
 }
 
 #LoginWidgetAuthentifiedUser
@@ -72,6 +87,19 @@ div, span
 #LoginWidgetUnauthentifiedUser
 {
 
+}
+
+#Container
+{
+   background-color: #FF9900;
+   padding: 4px;
+   
+   display: block;
+   position: absolute;
+   left: 2%;
+   top: 30%;
+   width: 96%;
+   height: 76%;
 }
 
 .View
@@ -87,14 +115,33 @@ div, span
    height: 98%;
 }
 
-#CustomizeView
+#CustomizeView label
 {
-
+   display: inline-block; 
+   width: 5%; 
+   text-align: right;
 }
 
-#RegisterView
+#MakeADemandButton
 {
+   position: absolute;
+   left:2%;
+   width:10%;
+}
 
+#RegisterView label
+{
+   display: inline-block; 
+   width: 18%; 
+   text-align: right;
+   line-height: 32px;
+}
+
+#RegistrationButton
+{
+   position: absolute;
+   left:4%;
+   width:20%;
 }
 
 #DemandsView
@@ -110,6 +157,12 @@ div, span
 .Button
 {
    background-color: #EE2222;
+   border-style:solid;
+	border-color:#c00 #c00 #f11 #f11;
+	border-width:1px 1px 2px 2px;
+	overflow:hidden;
+   text-align:center;
+   padding:1px;
 }
 
 .Button:hover
@@ -127,21 +180,49 @@ div, span
 #ConnectButton
 {
    position: absolute;
-   left: 75%;
-   top: 5%;
+   left: 55%;
+   top: 10%;
    height: 80%;
-   width: 22%;
+   width: 40%;
+   line-height:80px;
 }
 
-#Container
-{
-   background-color: #FF9900;
-   padding: 4px;
-   
-   display: block;
-   position: absolute;
-   left: 2%;
-   top: 22%;
-   width: 96%;
-   height: 76%;
+
+
+.Button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background-color:#fe1a00;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0px;
+	border:1px solid #d83526;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:italic;
+	height:32px;
+	line-height:32px;
+	/*width:70px;*/
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #b23e35;
+}.Button:hover {
+	background-color:#ce0100;
+}.Button:active {
+	position:relative;
+	top:1px;
 }

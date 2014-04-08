@@ -20,7 +20,7 @@ CustomizeView.prototype.makeADemand = function() {
    var type = $("#CustomizeViewType option:selected").val();
    var colour = $("#CustomizeViewColour option:selected").val();
    var motor = $("#CustomizeViewMotor option:selected").val();
-   var condition = $("#CustomizeViewCondition option:selected").val();
+   var condition = $("#CustomizeViewState option:selected").val();
    
    $.ajax({
        type: 'POST',
@@ -32,13 +32,13 @@ CustomizeView.prototype.makeADemand = function() {
          type:type,
          colour:colour,
          motor:motor,
-         condition:condition
+         state:condition
        },
        success: function ( data ) {
-           alert('success!' + data);
+           debug(2,'success!' + data);
        },
        error: function () {
-           alert('error');
+           debug(2,'error');
        }
    });
    
@@ -46,12 +46,12 @@ CustomizeView.prototype.makeADemand = function() {
 }
 
 CustomizeView.prototype.sayHello = function() {
-   alert("hello");
+   debug(2,"hello");
 }
 
 CustomizeView.prototype.setCallbacks = function() {
    var self = this;
-   
+   debug(2,"alors?");
    $("#MakeADemandButton").click( function(){
       self.makeADemand();
    });

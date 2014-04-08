@@ -3,10 +3,11 @@
 /* Global variables */
 var debugLevel = 4;
 var businessLogicLayerUrl = "../BusinessLayer/landing.php";
+var loginWidget = null;
 
 function debug(level, string) {
    if(debugLevel > level) {
-      alert(string);
+      $("#ConsoleBar").html($("#ConsoleBar").html()+string+"<br />");
    }
 }
 
@@ -14,17 +15,34 @@ function hashFunction( x ) {
    return x;
 }
 
-      
-/* Loading the required scripts */
-$.getScript("User.js", debug(3,"User.js loaded"));
-$.getScript("Demand.js", debug(3,"Demand.js loaded"));
-$.getScript("Offer.js",debug(3,"Offer.js loaded"));
-$.getScript("DemandsView.js", debug(3,"DemandsView.js loaded"));
-$.getScript("CustomizeView.js", debug(3,"CustomizeView.js loaded"));
-$.getScript("PersonalView.js", debug(3,"PersonalView.js loaded"));
-$.getScript("RegisterView.js", debug(3,"RegisterView.js loaded"));
-$.getScript("LoginWidget.js", debug(3,"LoginWidget.js loaded"));
-$.getScript("StringChecker.js", debug(3,"StringChecker.js loaded"));
+$(document) .ready(function () {
+    /* Loading the required scripts */
+    $.getScript('User.js', debug(3, 'User.js loaded')) .success(function () {
+        $.getScript('Demand.js', debug(3, 'Demand.js loaded')) .success(function () {
+            $.getScript('Offer.js', debug(3, 'Offer.js loaded')) .success(function () {
+                $.getScript('DemandsView.js', debug(3, 'DemandsView.js loaded')) .success(function () {
+                    $.getScript('CustomizeView.js', debug(3, 'CustomizeView.js loaded')) .success(function () {
+                        $.getScript('PersonalView.js', debug(3, 'PersonalView.js loaded')) .success(function () {
+                            $.getScript('RegisterView.js', debug(3, 'RegisterView.js loaded')) .success(function () {
+                                $.getScript('LoginWidget.js', debug(3, 'LoginWidget.js loaded')) .success(function () {
+                                    $.getScript('StringChecker.js', debug(3, 'StringChecker.js loaded')) .success(function () {
+                                        loginWidget = new LoginWidget();
+                                        var app = new App();
+                                        loginWidget.setCallbacks();
+                                        loginWidget.display();
+                                        debug(2,'fronf');
+                                        app.main();
+                                    });
+                                    
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    });
+});
       
 function App() {
 /*
@@ -57,7 +75,7 @@ App.prototype.main = function() {
       _customizeView.setCallbacks();
       _registerView.setCallbacks();
       _demandsView.setCallbacks();
-      alert("salut");
+      debug(2,"salut");
       
       /* Set view switching callbacks */
       $("#MenuElementCustomize").click( function() {
@@ -111,7 +129,7 @@ App.prototype.main = function() {
    });
    
 }
-
+/*
 //$(document).ready( function() {
    var loginWidget = new LoginWidget();
    var app = new App();
@@ -122,3 +140,4 @@ App.prototype.main = function() {
    });
    
    app.main();
+*/

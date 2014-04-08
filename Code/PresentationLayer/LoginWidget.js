@@ -47,11 +47,11 @@ LoginWidget.prototype.connect = function(userId, hash) {
          self._user.setName( data );
          self._user.setId( userId );
          
-         alert( userId + 'success!' + data);
-         //alert("success");
+         debug(2, userId + 'success!' + data);
+         //debug(2,"success");
        },
        error: function () {
-           alert('error');
+           debug(2,'error');
        }
    });
                
@@ -71,10 +71,10 @@ LoginWidget.prototype.disconnect = function( userId ) {
          userId:userId
        },
        success: function ( data ) {
-         alert( 'success!' + data);
+         debug(2, 'success!' + data);
        },
        error: function () {
-         alert('error');
+         debug(2,'error');
        }
    });
    
@@ -111,10 +111,10 @@ LoginWidget.prototype.setCallbacks = function() {
                            
                        },
               success:function() {
-                                                alert("success");
+                                                debug(2,"success");
                                              },
               error:function() {
-                                            alert("error");
+                                            debug(2,"error");
                                         }
             });*/
             
