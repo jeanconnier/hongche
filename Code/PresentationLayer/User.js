@@ -34,8 +34,9 @@ User.prototype.getOffers = function() {
 
 User.prototype.getDemands = function() {
    debug(2, "Getting "+this._id+"\'s demands...");
-   self = this;
-   $.ajax({
+   var self = this;
+   var ret = null;
+   /*$.ajax({
       type: 'POST',
       url: businessLogicLayerUrl,
       data: {
@@ -45,9 +46,19 @@ User.prototype.getDemands = function() {
       },
       success: function( data ) {
          debug(2, "success" + data );
+         ret = data;
       },
       error: function() {
          debug(2, "error");
+      }
+   });*/
+   return promise = $.ajax({
+      type: 'POST',
+      url: businessLogicLayerUrl,
+      data: {
+         class:"User",
+         method:"getDemands",
+         userId:self._id
       }
    });
 }

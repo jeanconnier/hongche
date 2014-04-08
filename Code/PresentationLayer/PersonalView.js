@@ -3,8 +3,6 @@
 function PersonalView() {
    /* Properties - PRIVATE */
    this._user = '';
-   this._offersList = new Array();
-   this._demandsList = new Array();
    
    /* Constructor */
    if( loginWidget._isConnected ) {
@@ -17,8 +15,6 @@ function PersonalView() {
 
 /* Properties - prototype */
 PersonalView.prototype._user = '';
-PersonalView.prototype._offersList = new Array();
-PersonalView.prototype._demandsList = new Array();
 
 /* Methods - prototype*/
 /*PersonalView.prototype.getOffers = function() {
@@ -29,15 +25,52 @@ PersonalView.prototype.getDemands = function() {
    
 }*/
 
+PersonalView.prototype.draw = function(data) {
+   
+}
+
 PersonalView.prototype.display = function() {
    if( loginWidget._isConnected ) {
       if(this._user == '') {
          this._user = loginWidget._user;
       }
       
-      debug(2, "sdfmoj");
-      this._demandsList = this._user.getDemands();
-      this._offersList = this._user.getOffers();
+      var promiseDemands = this._user.getDemands();
+      //var promiseOffers = this._user.getOffers();
+      
+      promiseDemands.success( function(data) {
+         var htmlDemandsList = '';
+         demandsList = data.split(",");
+         debug(2,demandsList[0]);
+         var currentElement = null;
+         for(var i = 0; i < demandsList.length; i++) {
+            /*currentElement = new Demand();
+            currentElement.setId( demandsList[0] );
+            currentElement.setUser( loginWidget.getUser() );*/
+            htmlDemandsList += '<li class="PersonalViewDemandElement">Id='+demandsList[i]+'<br/>Best price:'+demandsList[i]+'</li>';
+         }
+         
+         $("#PersonalViewDemandsList").html(htmlDemandsList);
+      });
+      
+      /*
+      promiseOffers.success( function(data) {
+         var htmlOffersList = '';
+         
+         for(var j = 0; i < this._offersList.length; j++) {
+            htmlOffersList += '<li class="PersonalViewOfferElement">Id='+_offersList[j].getId()+'<br/>Your price:'+_offersList[j].getPrice()+''+_offersList[j].getDemand().getBestPrice()+'</li>';
+         }
+         
+         $("#PersonalViewOffersList").html(htmlOffersList);
+      });
+      */
+      //this._demandsList
+      
+      
+      /*this._offersList = this._user.getOffers();
+      debug(2, "this._demandsList="+this._demandsList);
+      
+      
       
       var htmlDemandsList = '';
       var htmlOffersList = '';
@@ -51,7 +84,7 @@ PersonalView.prototype.display = function() {
       }
       
       $("#PersonalViewOffersList").html(htmlOffersList);
-      $("#PersonalViewDemandsList").html(htmlDemandsList);
+      $("#PersonalViewDemandsList").html(htmlDemandsList);*/
    }
 }
 

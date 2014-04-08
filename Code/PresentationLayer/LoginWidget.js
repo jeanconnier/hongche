@@ -29,9 +29,8 @@ LoginWidget.prototype.display = function() {
 
 LoginWidget.prototype.connect = function(userId, password) {
    this._isConnected = true;
-   self = this;
+   var self = this;
    
-   alert(userId + " " + password);
    $.ajax({
        type: 'POST',
        url: businessLogicLayerUrl,
@@ -117,3 +116,6 @@ LoginWidget.prototype.setCallbacks = function() {
             });*/
             
 /* Getters & setters */
+LoginWidget.prototype.getUser = function() {
+   return this._user;
+}
