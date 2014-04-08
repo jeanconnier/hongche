@@ -51,7 +51,6 @@ LoginWidget.prototype.connect = function(userId, password) {
             self.display();
          }
          debug(2, 'success!' + data);
-         //debug(2,"success");
        },
        error: function () {
            debug(2,'error');

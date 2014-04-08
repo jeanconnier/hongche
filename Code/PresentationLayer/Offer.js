@@ -46,7 +46,7 @@ Offer.prototype.getUser = function() {
 }
 
 Offer.prototype.getDemand = function() {
-   return this._demandId ;
+   return this._demand ;
 }
 
 Offer.prototype.getPrice = function() {
@@ -57,12 +57,12 @@ Offer.prototype.setId = function(id) {
    this._id = id;
 }
 
-Offer.prototype.setUser = function(userId) {
-   this._userId = userId;
+Offer.prototype.setUser = function(user) {
+   this._userId = user;
 }
 
-Offer.prototype.setDemand = function(demandId) {
-   this._demandId = demandId;
+Offer.prototype.setDemand = function(demand) {
+   this._demandId = demand;
 }
 
 Offer.prototype.setPrice = function(price) {

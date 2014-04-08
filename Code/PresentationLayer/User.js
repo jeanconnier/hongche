@@ -29,30 +29,25 @@ User.prototype.register = function() {
 }
 
 User.prototype.getOffers = function() {
-
+   debug(2, "Getting "+this._id+"\'s offers...");
+   var self = this;
+   
+   return $.ajax({
+      type: 'POST',
+      url: businessLogicLayerUrl,
+      data: {
+         class:"User",
+         method:"getOffers",
+         userId:self._id
+      }
+   });
 }
 
 User.prototype.getDemands = function() {
    debug(2, "Getting "+this._id+"\'s demands...");
    var self = this;
-   var ret = null;
-   /*$.ajax({
-      type: 'POST',
-      url: businessLogicLayerUrl,
-      data: {
-         class:"User",
-         method:"getDemands",
-         userId:self._id
-      },
-      success: function( data ) {
-         debug(2, "success" + data );
-         ret = data;
-      },
-      error: function() {
-         debug(2, "error");
-      }
-   });*/
-   return promise = $.ajax({
+   
+   return $.ajax({
       type: 'POST',
       url: businessLogicLayerUrl,
       data: {
