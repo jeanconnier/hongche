@@ -35,7 +35,7 @@
 		 // If the SQL request fails
 	     else
 	     {
-	        echo "error";
+	        echo "sqlError";
 	     }
 	  }
 	  // If the form isn't correctly filled
@@ -71,7 +71,7 @@
             // If the SQL request fails		 
 	        else
 	        {
-	           echo "error";
+	           echo "sqlError";
 	        }
          }
 		 // If the price is too high

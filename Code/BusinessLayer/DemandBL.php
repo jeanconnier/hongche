@@ -24,20 +24,20 @@
    
    
    function createDemandBL() {      
-      if ( !empty($_POST['brand'])  && !empty($_POST['type']) && !empty($_POST['motor']) && !empty($_POST['colour']) && !empty($_POST['condition']) )
+      if ( !empty($_POST['brand'])  && !empty($_POST['type']) && !empty($_POST['motor']) && !empty($_POST['colour']) && !empty($_POST['state']) )
 	  {
 	     echo $_SESSION['userId'];
          $demandId = $_SESSION['userId'].time();
 		 // If the SQL request is successful
-         if( createDemandDAL($demandId, $_SESSION['userId'], $_POST['brand'], $_POST['type'], $_POST['colour'], $_POST['motor'], $_POST['condition']) )
+         if( createDemandDAL($demandId, $_SESSION['userId'], $_POST['brand'], $_POST['type'], $_POST['colour'], $_POST['motor'], $_POST['state']) )
 	     {
-		    //echo 'Demand ID : '.$demandId.' Buyer ID : '.$_SESSION['userId'].' Brand : '.$_POST['brand'].' Type : '.$_POST['type'].' Motor : '.$_POST['motor'].' Condition : '.$_POST['condition'];
+		    //echo 'Demand ID : '.$demandId.' Buyer ID : '.$_SESSION['userId'].' Brand : '.$_POST['brand'].' Type : '.$_POST['type'].' Motor : '.$_POST['motor'].' Condition : '.$_POST['state'];
 	        echo "true";
 	     }
 		 // If the SQL request fails
 	     else
 	     {
-	        echo "error";
+	        echo "sqlError";
 	     }
 	  }
 	  // If the form isn't correctly filled

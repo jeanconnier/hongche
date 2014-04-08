@@ -49,10 +49,12 @@
 	  // If the user exists
 	  if ( checkUserIdDAL($_POST['userId']) )
 	  {
+	    // Create the hash corresponding to the input password with the Blowfish algorithm
+	    $inputHash = password_hash($_POST['password'], PASSWORD_BCRYPT);
 	    // Get the hash corresponding to the userId from the database
-	    $hash = getHashDAL($_POST['userId']);
+	    $databaseHash = getHashDAL($_POST['userId']);
 		// If the hash is correct
-		 if ( $hash == $_POST['hash'] )
+		 if ( $databaseHash == $inputHash )
 		 {
 			$isCorrect = true;
 		 }
@@ -64,13 +66,12 @@
    function connectBL() {
 	  $isConnected = "false";
 	  // If the form has been correctly filled
-	  if ( !empty($_POST['userId']) && !empty($_POST['hash']) )
+	  if ( !empty($_POST['userId']) && !empty($_POST['password']) )
 	  {
-	  /*
 	     // If the user exists
 	     if ( checkUserIdBL() )
 	     {
-	        // If the hash is correct
+	        // If the password is correct
 		    if ( checkHashBL() )
 		    {
 			   $isConnected = "true";
@@ -78,10 +79,8 @@
 			   $_SESSION['userId'] = $_POST['userId'];
 		    }
 	     }
-	  */
 	     $_SESSION['userId'] = $_POST['userId'];
-	     echo $_SESSION['userId'];   
-	     //echo 'User '.getUsernameDAL().' is connected';
+	     echo 'User '.getUsernameDAL().' is connected';
 	  }
 	  
 	  echo $isConnected;
@@ -96,13 +95,14 @@
    // registerBL tests if the userId is already in use, if not the user is created
    function registerBL() {
       $isRegistered = "false";
-      if ( !empty($_POST['userId']) && !empty($_POST['username']) && !empty($_POST['hash']) )
+      if ( !empty($_POST['userId']) && !empty($_POST['username']) && !empty($_POST['password']) )
       {
 	     // If the user ID is available
          if( !checkUserIdBL() )
 	     {
+		    $hash = password_hash($_POST['password'],PASSWORD_BCRYPT);
 		    // If the SQL succeed
-	        if ( registerDAL($_POST['userId'], $_POST['username'], $_POST['hash']) )
+	        if ( registerDAL($_POST['userId'], $_POST['username'], $hash) )
 			{
                $isRegistered = "true";
 			}
