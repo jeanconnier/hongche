@@ -28,6 +28,10 @@
          searchDemandBL();
          break;
          
+         case "getDemandInfo":
+         getDemandInfoBL();
+         break;
+         
       }
    }
    
@@ -100,6 +104,11 @@
    // searchDemandBL returns the list of demands corresponding to the criteria
    function searchDemandBL() {
       echo searchDemandDAL($_POST['brand'], $_POST['type'], $_POST['colour'], $_POST['motor'], $_POST['state']);
+   }
+   
+   // getDemandInfoBL returns all the information of the corresponding demand
+   function getDemandInfoBL() {
+      echo getDemandInfoDAL($_POST['demandId']);
    }
    
 ?>

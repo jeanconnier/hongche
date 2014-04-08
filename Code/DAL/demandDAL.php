@@ -303,5 +303,31 @@
 
 	return $bret;
 	}
+   
+   //return the information of a demand 
+	
+	function getDemandInfoDAL($demandId){
+	try
+	{
+		$bdd = new PDO('mysql:host=localhost;dbname=carsale', 'root', '');
+	}
+	catch(Exception $e)
+	{
+		die('Error : '.$e->getMessage());
+	}
+	
+	$req = $bdd->query('SELECT * FROM demand WHERE DemandId = ?');
+   $req->execute(array($did));
+	$ret = "";
+	
+	while($temp = $req->fetch())
+	{
+		$ret = $ret . $temp['Brand'] . ", " . $temp['Type'] . ", " . $temp['Colour'] . ", " . $temp['Motor'] . ", " . $temp['State'] . "; ";
+	}
+	
+	$req->closeCursor();
+
+	return $ret;
+	}		
 
 ?>
