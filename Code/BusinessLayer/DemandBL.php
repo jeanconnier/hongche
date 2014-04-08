@@ -19,43 +19,52 @@
          case "secureDeal":
          secureDealBL();
          break;
+         
+         case "getDemands":
+         getDemandsBL();
+         break;
+         
+         case "searchDemand":
+         searchDemandBL();
+         break;
+         
       }
    }
    
    
    function createDemandBL() {      
       if ( !empty($_POST['brand'])  && !empty($_POST['type']) && !empty($_POST['motor']) && !empty($_POST['colour']) && !empty($_POST['state']) )
-	  {
-	     echo $_SESSION['userId'];
+	   {
+	      echo $_SESSION['userId'];
          $demandId = $_SESSION['userId'].time();
-		 // If the SQL request is successful
+         // If the SQL request is successful
          if( createDemandDAL($demandId, $_SESSION['userId'], $_POST['brand'], $_POST['type'], $_POST['colour'], $_POST['motor'], $_POST['state']) )
-	     {
-		    //echo 'Demand ID : '.$demandId.' Buyer ID : '.$_SESSION['userId'].' Brand : '.$_POST['brand'].' Type : '.$_POST['type'].' Motor : '.$_POST['motor'].' Condition : '.$_POST['state'];
-	        echo "true";
-	     }
-		 // If the SQL request fails
-	     else
-	     {
-	        echo "sqlError";
-	     }
-	  }
-	  // If the form isn't correctly filled
-	  else
-	  {
-	     echo "false";
-	  }
+         {
+            //echo 'Demand ID : '.$demandId.' Buyer ID : '.$_SESSION['userId'].' Brand : '.$_POST['brand'].' Type : '.$_POST['type'].' Motor : '.$_POST['motor'].' Condition : '.$_POST['state'];
+            echo "true";
+         }
+         // If the SQL request fails
+         else
+         {
+            echo "sqlError";
+         }
+      }
+      // If the form isn't correctly filled
+      else
+      {
+         echo "false";
+      }
    }
    
    function deleteDemandBL() {
-	  if ( deleteDemandDAL($_POST['demandId']) )
-	  {
-	     echo "true";
-	  }
-	  else
-	  {
-	     echo "false";
-	  }
+      if ( deleteDemandDAL($_POST['demandId']) )
+      {
+         echo "true";
+      }
+      else
+      {
+         echo "false";
+      }
    }
    
    function getBestOfferBL() {
@@ -83,5 +92,14 @@
       }
    }
    
+   // getDemandsBL returns the list of all the demands in the database
+   function getDemandsBL() {      
+      echo getAllDemandsDAL();
+   }
+   
+   // searchDemandBL returns the list of demands corresponding to the criteria
+   function searchDemandBL() {
+      echo searchDemandDAL($_POST['brand'], $_POST['type'], $_POST['colour'], $_POST['motor'], $_POST['state']);
+   }
    
 ?>

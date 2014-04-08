@@ -130,9 +130,13 @@
       }
    }
    
-   // getDemandsBL returns all the demands of the user
+   // getDemandsBL returns all the demands made by the user
    function getDemandsBL() {
-      $demands = getDemandsDAL($_POST['userId']);
-      echo $demands;
+      echo getAllDemandsFromUserDAL($_POST['userId']);
+   }
+   
+   // getOffersBL returns all the offers made by the user
+   function getOffersBL() {
+      echo getAllOffersFromUserDAL($_POST['userId']);
    }
 ?>
