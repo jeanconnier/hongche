@@ -33,9 +33,7 @@
 	I: offerid
 	O: userid
 	*/
-?>
 
-<?php
 //create a new row in offer
 //given the value of offerid, demandid, userid, and the price
 //return a boolean
@@ -66,9 +64,7 @@
 	createOfferDAL("1", "1", "63", 4000);
 	createOfferDAL("2", "1", "94", 6000);
 	*/
-?>
 
-<?php
 //update a row in offer
 //given the value of offerid, demandid, userid, and the price
 //return a boolean
@@ -100,9 +96,7 @@
 	/*
 	updateOfferDAL("29", "1", "13", 8000);
 	*/
-?>
 
-<?php
 //delete a row in offer
 //given the value of offerid
 //return a boolean
@@ -134,10 +128,7 @@
 	deleteOfferDAL("14");
 	*/
 	
-?>
 
-
-<?php
 //get the price of an offer
 //given the offerid
 //knowing there is only one price per offer
@@ -170,11 +161,7 @@
 	/*
 	getOfferPriceDAL("1");
 	*/
-?>
 
-
-
-<?php
 	//get userid from an offer idat
 	
 		function getUserIdFromOfferDAL($oid){

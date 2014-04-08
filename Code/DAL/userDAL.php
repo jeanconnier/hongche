@@ -49,9 +49,7 @@
 	O: return true or false
 	*/
 	
-?>
 
-<?php
 //create a new row in table user
 //given the value userid, username, hash
 //return a boolean
@@ -84,10 +82,7 @@
 	registerDAL("13", "Po", "Po1");
 	registerDAL("63", "Jean", "Jean1");
 	*/
-?>
 
-
-<?php
 
 //check if userid exist or not
 //given a userid
@@ -131,9 +126,7 @@
 	/*
 	checkUserIdDAL("53");
 	*/
-?>
 
-<?php
 
 //return the username of a user given his userId
 
@@ -166,10 +159,7 @@
 	/*
 	getUsernameDAL("94");
 	*/
-?>
 
-
-<?php
 
 //return the hash of a user given his userId
 
@@ -203,9 +193,7 @@
 	/*
 	getHashDAL("94");
 	*/
-?>
 
-<?php
 	
 		function getUserIdFromOffer($oid){
 		try
@@ -236,9 +224,7 @@
 	/*
 	getUserIdFromOffer("1");
 	*/
-?>
 
-<?php
 
 	//return all the Demands in the DB of a user
 	//given his userid
@@ -271,9 +257,7 @@
 	return $ret;
 	}
 
-?>
 
-<?php
 
 	//return all the Offer in the DB of a user
 	//given his userid

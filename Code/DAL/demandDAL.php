@@ -53,9 +53,7 @@
 	I: demandId
 	O: return a bool
 	*/
-?>
 
-<?php
 //create a new row in demand
 //given the value of demandid, userid, and the options of the car
 //return a boolean
@@ -80,10 +78,7 @@
 			
 		return $bret;
 	}
-?>
 
-
-<?php
 //delete a row in demand
 //given the value of demandid
 //return a boolean
@@ -109,10 +104,7 @@
 		
 		return $bret;
 	}
-?>
 
-
-<?php
 //find the best offer for a demand
 //given the demandid
 //returns the offerid
@@ -163,10 +155,7 @@
 		}
 		
 	}
-?>
 
-
-<?php
 
 	//get a userid from a demandid
 	
@@ -192,9 +181,7 @@
 		}
 
 	}
-?>
 
-<?php
 
 	//return all the Demands in the DB
 	
@@ -220,9 +207,7 @@
 
 	return $ret;
 	}		
-?>
 
-<?php
 	//function searchDemandDAL($brand, $type, $colour, $motor, $cond)
 	//search a demand
 	//given the attributes of the car
@@ -259,9 +244,7 @@
 	
 	return $ret;
 	}
-?>
 
-<?php
 	//return true if the deal is secured
 	
 	function securedDeal($did){
@@ -293,9 +276,7 @@
 
 	return $bret;
 	}
-?>
 
-<?php
 	//secure a deal
 	//return a bool
 	
