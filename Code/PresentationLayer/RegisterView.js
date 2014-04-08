@@ -43,8 +43,6 @@ RegisterView.prototype.setCallbacks = function() {
       var username = $("#RegisterViewName").val();
       var password = $("#RegisterViewPassword").val();
       
-      var password = passwordFunction( password );
-      
       self.registerUser(userId, username, password);
       //self.display();
     });

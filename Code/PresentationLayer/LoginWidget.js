@@ -31,7 +31,7 @@ LoginWidget.prototype.connect = function(userId, password) {
    this._isConnected = true;
    self = this;
    
-   
+   alert(userId + " " + password);
    $.ajax({
        type: 'POST',
        url: businessLogicLayerUrl,
@@ -47,7 +47,7 @@ LoginWidget.prototype.connect = function(userId, password) {
          self._user.setName( data );
          self._user.setId( userId );
          
-         debug(2, userId + 'success!' + data);
+         debug(2, 'success!' + data);
          //debug(2,"success");
        },
        error: function () {
@@ -88,9 +88,8 @@ LoginWidget.prototype.setCallbacks = function() {
       var userId = $("#LoginWidgetUserId").val();
       var password = $("#LoginWidgetPassword").val();
       
-      var password = passwordFunction( password );
-      
       self.connect(userId, password);
+      
    });
    
    $("#DisconnectButton").click( function() {
