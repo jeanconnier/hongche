@@ -14,7 +14,7 @@ RegisterView.prototype.display = function() {
    
 }
 
-RegisterView.prototype.registerUser = function(userId, username, hash) {
+RegisterView.prototype.registerUser = function(userId, username, password) {
    debug(2,"Trying to register...");
    $.ajax({
        type: 'POST',
@@ -24,7 +24,7 @@ RegisterView.prototype.registerUser = function(userId, username, hash) {
          method:"register",
          userId:userId,
          username:username,
-         hash:hash
+         password:password
        },
        success: function ( data ) {
            debug(2,'success!' + data);
@@ -43,9 +43,9 @@ RegisterView.prototype.setCallbacks = function() {
       var username = $("#RegisterViewName").val();
       var password = $("#RegisterViewPassword").val();
       
-      var hash = hashFunction( password );
+      var password = passwordFunction( password );
       
-      self.registerUser(userId, username, hash);
+      self.registerUser(userId, username, password);
       //self.display();
     });
     

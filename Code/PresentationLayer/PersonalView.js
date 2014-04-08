@@ -35,6 +35,7 @@ PersonalView.prototype.display = function() {
          this._user = loginWidget._user;
       }
       
+      debug(2, "sdfmoj");
       this._demandsList = this._user.getDemands();
       this._offersList = this._user.getOffers();
       

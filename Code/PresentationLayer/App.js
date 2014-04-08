@@ -8,10 +8,11 @@ var loginWidget = null;
 function debug(level, string) {
    if(debugLevel > level) {
       $("#ConsoleBar").html($("#ConsoleBar").html()+string+"<br />");
+      $("#ConsoleBar").scrollTop($("#ConsoleBar")[0].scrollHeight);
    }
 }
 
-function hashFunction( x ) {
+function passwordFunction( x ) {
    return x;
 }
 

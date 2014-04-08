@@ -1,4 +1,41 @@
 <?php
+	/*
+	function createOfferDAL($oid, $did, $uid, $price)
+	create a new row in offer
+	I: given the value of offerid, demandid, userid, and the price
+	O: return a boolean
+	*/
+
+	/*
+	function updateOfferDAL($oid, $did, $uid, $price)
+	update a row in offer
+	I: given the value of offerid, demandid, userid, and the price
+	O: return a boolean
+	*/
+	
+	/*
+	function deleteOfferDAL($oid)
+	delete a row in offer
+	I: given the value of offerid
+	O: return a boolean
+	*/
+
+	/*
+	function getOfferPriceDAL($oid)
+	get the price of an offer (knowing there is only one price per offer)
+	I: given the offerid
+	O: return price 
+	*/
+
+	/*
+	function getUserIdFromOfferDAL($oid)
+	get userid from an offer 
+	I: offerid
+	O: userid
+	*/
+?>
+
+<?php
 //create a new row in offer
 //given the value of offerid, demandid, userid, and the price
 //return a boolean
@@ -123,11 +160,10 @@
 		
 		while ($ret = $oprice->fetch())
 		{
+			$oprice->closeCursor();
 			return $ret['Price'];
 			//echo $ret['Price'];
 		}
-		
-		$oprice->closeCursor();
 	}
 	
 	//test
@@ -158,11 +194,10 @@
 		
 		while ($ret = $req->fetch())
 		{
+			$req->closeCursor();
 			return $ret['UserId'];
 			//echo $ret['UserId'];
 		}
-		
-		$req->closeCursor();
 	}
 	
 	//test

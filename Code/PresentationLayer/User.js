@@ -6,14 +6,14 @@ function User() {
    /* Properties - PRIVATE */
    this._name = '';
    this._id = '';
-   this._hash = '';
+   this._password = '';
    
 }
 
 /* Properties - prototype */
 User.prototype._name = '';
 User.prototype._id = '';
-User.prototype._hash = '';
+User.prototype._password = '';
 
 /* Methods - prototype*/
 User.prototype.connect = function() {
@@ -33,7 +33,7 @@ User.prototype.getOffers = function() {
 }
 
 User.prototype.getDemands = function() {
-   debug(2, "Getting "+this._id+"'s demands...");
+   debug(2, "Getting "+this._id+"\'s demands...");
    self = this;
    $.ajax({
       type: 'POST',
@@ -45,7 +45,7 @@ User.prototype.getDemands = function() {
       },
       success: function( data ) {
          debug(2, "success" + data );
-      }
+      },
       error: function() {
          debug(2, "error");
       }
@@ -61,8 +61,8 @@ User.prototype.getId = function() {
    return this._id;
 }
 
-User.prototype.getHash = function() {
-   return this._hash;
+User.prototype.getPassword = function() {
+   return this._password;
 }
 
 User.prototype.setName = function(name) {
@@ -73,6 +73,6 @@ User.prototype.setId = function(id) {
    this._id = id;
 }
 
-User.prototype.setHash = function(hash) {
-   this._hash = hash;
+User.prototype.setPassword = function(password) {
+   this._password = password;
 }

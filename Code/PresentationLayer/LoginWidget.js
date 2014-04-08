@@ -27,7 +27,7 @@ LoginWidget.prototype.display = function() {
    }
 }
 
-LoginWidget.prototype.connect = function(userId, hash) {
+LoginWidget.prototype.connect = function(userId, password) {
    this._isConnected = true;
    self = this;
    
@@ -39,11 +39,11 @@ LoginWidget.prototype.connect = function(userId, hash) {
          class:"User",
          method:"connect",
          userId:userId,
-         hash:hash
+         password:password
        },
        success: function ( data ) {
          self._user = new User();
-         self._user.setHash( hash );
+         self._user.setpassword( password );
          self._user.setName( data );
          self._user.setId( userId );
          
@@ -88,9 +88,9 @@ LoginWidget.prototype.setCallbacks = function() {
       var userId = $("#LoginWidgetUserId").val();
       var password = $("#LoginWidgetPassword").val();
       
-      var hash = hashFunction( password );
+      var password = passwordFunction( password );
       
-      self.connect(userId, hash);
+      self.connect(userId, password);
    });
    
    $("#DisconnectButton").click( function() {
