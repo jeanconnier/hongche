@@ -27,8 +27,21 @@ RegisterView.prototype.registerUser = function(userId, username, password) {
          password:password
        },
        success: function ( data ) {
-           debug(2,'success!' + data);
-           //debug(2,"fronf");
+            debug(2,'success!' + data);
+            var str = null;
+            if( data === "true") {
+               str = "You are registered as a new user!";
+            }
+            else {
+               if(userId === '' || username === '' || password === '') {
+                  str = "Please fill all fields.";
+               }
+               else {
+                  str = "This userId is already used";
+               }
+            }
+            displayError(str);
+            //debug(2,"fronf");
        },
        error: function () {
            debug(2,'error');
@@ -37,7 +50,7 @@ RegisterView.prototype.registerUser = function(userId, username, password) {
 }
 
 RegisterView.prototype.setCallbacks = function() {
-   self = this;
+   var self = this;
    $("#RegistrationButton").click( function() {
       var userId = $("#RegisterViewIdentifier").val();
       var username = $("#RegisterViewName").val();

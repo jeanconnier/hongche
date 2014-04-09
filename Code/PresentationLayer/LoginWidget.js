@@ -45,14 +45,15 @@ LoginWidget.prototype.connect = function(userId, password) {
          
          if( data === "true" )
          {
-            self._user.setName( userId + " la science" );
+            self._user.setName( userId );
             self._user.setId( userId );
             self._isConnected = true;
+            displayError("You are connected as "+self._user._id+"!");
             self.display();
          }
          else
          {
-            alert("Wrong login and/or password");
+            displayError("Wrong login and/or password");
          }
          debug(2, 'success!' + data);
        },
@@ -77,6 +78,7 @@ LoginWidget.prototype.disconnect = function( userId ) {
          userId:userId
        },
        success: function ( data ) {
+         displayError("You've been disconnected!");
          debug(2, 'success!' + data);
        },
        error: function () {

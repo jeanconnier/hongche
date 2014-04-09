@@ -206,7 +206,7 @@
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret . $temp['DemandId'] . "," . $temp['UserId'] . "," . $temp['Brand'] . "," . $temp['Type'] . "," . $temp['Colour'] . "," . $temp['Motor'] . "," . $temp['State'] . "; ";
+		$ret = $ret . $temp['DemandId'] . "," . $temp['UserId'] . "," . $temp['Brand'] . "," . $temp['Type'] . "," . $temp['Colour'] . "," . $temp['Motor'] . "," . $temp['State'] . "," . $temp['isSecured'] . ";";
 	}
 	
 	$req->closeCursor();

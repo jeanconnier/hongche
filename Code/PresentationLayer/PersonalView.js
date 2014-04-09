@@ -34,9 +34,7 @@ PersonalView.prototype.display = function() {
    $("#PersonalViewOffersList").html('');
    
    if( loginWidget._isConnected ) {
-      if(this._user == '') {
-         this._user = loginWidget.getUser();
-      }
+      this._user = loginWidget.getUser();
       
       var promiseDemands = this._user.getDemands();
       var promiseOffers = this._user.getOffers();
