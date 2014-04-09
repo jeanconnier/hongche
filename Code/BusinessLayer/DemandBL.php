@@ -20,6 +20,10 @@
          secureDealBL();
          break;
          
+         case "isSecured":
+         isSecuredBL();
+         break;
+         
          case "getDemands":
          getAllDemandsBL();
          break;
@@ -77,10 +81,10 @@
    
    // secureDealBL returns true if the deal is secured, false if the database access failed and error if the deal is already secured
    function secureDealBL() {
-      if ( !isDemandSecuredDAL($_POST['demandId']) )
+      if ( !securedDeal($_POST['demandId']) )
       {
          {
-            if ( secureDealDAL($_POST['demandId']) )
+            if ( setSecured($_POST['demandId']) )
             {
                echo "true";
             }
@@ -94,6 +98,10 @@
       {
          echo "error";
       }
+   }
+   
+   function isSecuredBL() {
+      echo securedDeal($_POST['demandId']);
    }
    
    // getDemandsBL returns the list of all the demands in the database

@@ -26,8 +26,53 @@ Demand.prototype.display = function() {
    
 }
 
-Demand.prototype.getBestOffer = function() {
+Demand.prototype.getBestOffer = function( htmlElement ) {
+   var self = this;
+   debug(2, "Getting "+htmlElement+"\'s best offer...");
    
+   $.ajax({
+       type: 'POST',
+       url: businessLogicLayerUrl,
+       data: {
+         class:"Demand",
+         method:"getBestOffer",
+         demandId:self._id
+       },
+       success: function ( data ) {
+         debug(2, 'success!' +htmlElement +" "+ data);
+         $(htmlElement).html(data);
+       },
+       error: function () {
+         debug(2,'error');
+       }
+   });
+}
+
+Demand.prototype.isSecured = function( htmlElement, i ) {
+   var self = this;
+   debug(2, "Checking if "+htmlElement+" is secured...");
+   
+   $.ajax({
+       type: 'POST',
+       url: businessLogicLayerUrl,
+       data: {
+         class:"Demand",
+         method:"isSecured",
+         demandId:self._id
+       },
+       success: function ( data ) {
+         debug(2, 'success!' +htmlElement +" "+ data);
+         var str = 'No! <span class="Button SecureButton" id="SecureButton'+i+'" buttonIndex="'+i+'">Secure!</span>';
+         if(data === "1")
+         {
+            str = "Oh yes!";
+         }
+         $(htmlElement).html(str);
+       },
+       error: function () {
+         debug(2,'error');
+       }
+   });
 }
 
 Demand.prototype.secureDeal= function() {

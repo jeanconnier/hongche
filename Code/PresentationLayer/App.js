@@ -13,6 +13,20 @@ function debug(level, string) {
 }
 
 
+
+    
+function displayError( string ) {
+   $("#ErrorMessage").text( string );
+   $("#ErrorWindow").show();
+   /*$("#ErrorWindow").animate(
+   {$("#ErrorWindow").show()},
+     "fast").animate(
+   {$("#ErrorWindow").hide()},
+      "fast");
+   });*/
+}
+
+
 $(document) .ready(function () {
     /* Loading the required scripts */
     $.getScript('User.js', debug(3, 'User.js loaded')) .success(function () {
@@ -75,6 +89,8 @@ App.prototype.main = function() {
       _demandsView.setCallbacks();
       debug(2,"salut");
       
+      $("#ErrorWindow").hide();
+      
       /* Set view switching callbacks */
       $("#MenuElementCustomize").click( function() {
          $("#CustomizeView").show();
@@ -116,12 +132,17 @@ App.prototype.main = function() {
          
          _demandsView.display();
       });
+      $("#ErrorMessageButton").click( function() {
+            $("#ErrorWindow").hide();
+      });
       
       /* The default view is the CustomizeView */
       $("#CustomizeView").show();
       $("#RegisterView").hide();
       $("#DemandsView").hide();
       $("#PersonalView").hide();
+      
+      
       
       _customizeView.display();
    });

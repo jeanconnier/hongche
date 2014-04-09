@@ -78,9 +78,9 @@
 	
 	//test
 	/*
-	registerDAL("94", "Max", "Max1");
-	registerDAL("13", "Po", "Po1");
-	registerDAL("63", "Jean", "Jean1");
+	registerDAL("94","Max","Max1");
+	registerDAL("13","Po","Po1");
+	registerDAL("63","Jean","Jean1");
 	*/
 
 
@@ -281,7 +281,11 @@
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret .$temp['OfferId'] . "," . $temp['DemandId'] .",". getDemandInfoDAL($temp['DemandId'])."," . $temp['UserId'] . "," . $temp['Price'];
+      if(empty($x))
+      {
+         $x = $temp;
+      }
+		$ret = $ret .$temp['OfferId'] . "," . $temp['DemandId'] .",". getDemandInfoDAL($temp['DemandId'])."," . $temp['UserId'] . "," . $temp['Price'] . ";";
 	}
 	
 	$req->closeCursor();

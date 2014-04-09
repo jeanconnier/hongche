@@ -115,7 +115,7 @@
 //given the demandid
 //returns the offerid
 
-	function getBestOfferIdDAL($did){
+	function getBestOfferDAL($did){
 		try
 		{
 			$bdd = new PDO('mysql:host=localhost;dbname=carsale', 'root', '');
@@ -133,7 +133,7 @@
 
 		while ($ret = $req->fetch())
 		{
-			if($ret['NumberOffer'] == 1)
+			if($ret['NumberOffer'] != 0)
 			{
 				$boid = $bdd->prepare('SELECT * 
 										FROM offer 
@@ -145,7 +145,7 @@
 				while ($ret = $boid->fetch())
 				{
 					$req->closeCursor();
-					return $ret['OfferId'];
+					return $ret['Price'];
 				}
 				
 				$boid->closeCursor();
@@ -206,7 +206,7 @@
 	
 	while($temp = $req->fetch())
 	{
-		$ret = $ret . $temp['DemandId'] . ", " . $temp['UserId'] . ", " . $temp['Brand'] . ", " . $temp['Type'] . ", " . $temp['Colour'] . ", " . $temp['Motor'] . ", " . $temp['State'] . "; ";
+		$ret = $ret . $temp['DemandId'] . "," . $temp['UserId'] . "," . $temp['Brand'] . "," . $temp['Type'] . "," . $temp['Colour'] . "," . $temp['Motor'] . "," . $temp['State'] . "; ";
 	}
 	
 	$req->closeCursor();

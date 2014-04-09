@@ -49,13 +49,40 @@ PersonalView.prototype.display = function() {
             var currentElement = new Demand();
             currentElement.setId( currentElementArray[0] );
             currentElement.setUser( loginWidget.getUser() );
-            htmlDemandsList += '<li class="PersonalViewDemandElement"><table><tr><td>Id</td><td>'+currentElement.getId()+'</td><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td class="BestPrice">Best price</td><td>'+currentElement.getBestOffer()+'</td></tr></table></li>';
+            htmlDemandsList += '<li class="PersonalViewDemandElement"><table><tr><td>Demand Id</td><td id="DemandIdData'+i+'">'+currentElement.getId()+'</td><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td class="BestPrice">Best price</td><td id="BestOffer'+i+'">Yet unknown</td></tr><tr><td class="Secured">Secured</td><td id="SecuredDeal'+i+'"></td></tr></table></li>';
+            currentElement.getBestOffer( "#BestOffer"+i );
+            currentElement.isSecured( "#SecuredDeal"+i,i );
          }
+         
+         debug(2, "SecureButton callbacks set...");
+         $(document).on('click', ".SecureButton", function(){ 
+            var index = $(this).attr("buttonIndex");
+            var demandId = $("#DemandIdData"+index).text().replace(" ", "");;
+            
+            debug(2, index+ " demandId:" + demandId);
+            $.ajax({
+                type: 'POST',
+                url: businessLogicLayerUrl,
+                data: {
+                  class:"Demand",
+                  method:"secureDeal",
+                  demandId:demandId
+                },
+                success: function ( data ) {
+                  debug(2, 'success!' + data);
+                },
+                error: function () {
+                  debug(2,'error');
+                }
+            });
+         });
          
          $("#PersonalViewDemandsList").html(htmlDemandsList);
       });
       
       /*## offerId, demandId, Brand, Type, Colour, Motor, State, buyerId, sellerId, price ##*/
+      
+      
       promiseOffers.success( function(data) {
          var htmlOffersList = '';
          debug( 2,"data="+data );
@@ -66,37 +93,17 @@ PersonalView.prototype.display = function() {
          for(var i = 0; i < offersList.length - 1; i++) {
             currentElementArray = offersList[i].split(",");
             //htmlOffersList += '<table><tr><td>Offer ID</td><td>'+currentElementArray[0]+'</td></tr><tr><td>Demand ID</td><td>'+currentElementArray[1]+'</td></tr></table>';
-            htmlOffersList += '<li class="PersonalViewDemandElement"><table><tr><td>Offer ID</td><td>'+currentElementArray[0]+'</td><tr><td>Demand ID</td><td>'+currentElementArray[1]+'</td></tr><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td>Buyer ID</td><td>'+currentElementArray[7]+'</td></tr><tr><td class="YourPrice">Your price</td><td>'+currentElementArray[9]+'</td></tr></table></li>';
+            htmlOffersList += '<li class="PersonalViewOfferElement"><table><tr><td>Offer ID</td><td>'+currentElementArray[0]+'</td><tr><td>Demand ID</td><td>'+currentElementArray[1]+'</td></tr><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td>Buyer ID</td><td>'+currentElementArray[7]+'</td></tr><tr><td class="YourPrice">Your price</td><td>'+currentElementArray[9]+'</td></tr></table></li>';
          }
+         
+         
          
          $("#PersonalViewOffersList").html(htmlOffersList);
       });
-      
-      //this._demandsList
-      
-      
-      /*this._offersList = this._user.getOffers();
-      debug(2, "this._demandsList="+this._demandsList);
-      
-      
-      
-      var htmlDemandsList = '';
-      var htmlOffersList = '';
-      
-      for(var i = 0; i < this._demandsList.length; i++) {
-         htmlDemandsList += '<li class="PersonalViewDemandElement">Id='+_demandsList[i].getId()+'<br/>Best price:'+_demandsList[i].getBestPrice()+'</li>';
-      }
-      
-      for(var j = 0; i < this._offersList.length; j++) {
-         htmlOffersList += '<li class="PersonalViewOfferElement">Id='+_offersList[j].getId()+'<br/>Your price:'+_offersList[j].getPrice()+''+_offersList[j].getDemand().getBestPrice()+'</li>';
-      }
-      
-      $("#PersonalViewOffersList").html(htmlOffersList);
-      $("#PersonalViewDemandsList").html(htmlDemandsList);*/
    }
    else
    {
-      alert("Please log in...");
+      displayError("Please log in...");
    }
 }
 

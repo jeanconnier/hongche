@@ -53,7 +53,14 @@ CustomizeView.prototype.setCallbacks = function() {
    var self = this;
    debug(2,"alors?");
    $("#MakeADemandButton").click( function(){
-      self.makeADemand();
+      if(loginWidget._isConnected)
+      {
+         self.makeADemand();
+      }
+      else
+      {
+         displayError("Please log in...");
+      }
    });
    
    debug(2, "CustomizeView callbacks set");

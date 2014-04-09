@@ -50,6 +50,10 @@ LoginWidget.prototype.connect = function(userId, password) {
             self._isConnected = true;
             self.display();
          }
+         else
+         {
+            alert("Wrong login and/or password");
+         }
          debug(2, 'success!' + data);
        },
        error: function () {

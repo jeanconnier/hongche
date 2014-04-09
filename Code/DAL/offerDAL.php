@@ -61,8 +61,8 @@
 	
 	//test
 	/*
-	createOfferDAL("1", "1", "63", 4000);
-	createOfferDAL("2", "1", "94", 6000);
+	createOfferDAL("1","1","63", 4000);
+	createOfferDAL("2","1","94", 6000);
 	*/
 
 //update a row in offer
@@ -94,7 +94,7 @@
 	
 	//test
 	/*
-	updateOfferDAL("29", "1", "13", 8000);
+	updateOfferDAL("29","1","13", 8000);
 	*/
 
 //delete a row in offer

@@ -27,6 +27,7 @@ DemandsView.prototype.getDemands = function() {
    });
 }
 
+
 DemandsView.prototype.display = function() {
    $("#DemandsViewDemandsList").html('');
    
@@ -49,7 +50,9 @@ DemandsView.prototype.display = function() {
             currentElement.setUser( currentElementArray[1] );
             // debug(2,"yoh");
             //alert(currentElement.getBestOffer());
-            htmlDemandsList += '<li class="DemandsViewDemandElement"><table><tr><td>Id</td><td id="DemandIdData'+i+'">'+currentElementArray[0]+'</td><tr><td >User ID</td><td  id="UserId'+i+'">'+currentElementArray[1]+'</td></tr><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td class="BestPrice">Best price</td><td>'+currentElementArray[0]+'</td></tr></table></li><input type="text" id="AnswerDemandPrice'+i+'"/><span class="Button AnswerDemandButton" buttonIndex="'+i+'">Answer!</span>';
+            htmlDemandsList += '<li class="DemandsViewDemandElement"><table><tr><td>Id</td><td id="DemandIdData'+i+'">'+currentElementArray[0]+'</td><tr><td >User ID</td><td  id="UserId'+i+'">'+currentElementArray[1]+'</td></tr><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td class="BestPrice">Best price</td><td id="BestPrice'+i+'">Yet unknown</td></tr></table></li><input type="text" id="AnswerDemandPrice'+i+'"/><span class="Button AnswerDemandButton" buttonIndex="'+i+'">Answer!</span>';
+            
+            currentElement.getBestOffer( "#BestPrice"+i );
             
             var self = this;
             var userId = loginWidget.getUser().getId();
@@ -61,7 +64,7 @@ DemandsView.prototype.display = function() {
          $(document).on('click', ".AnswerDemandButton", function(){ 
             var index = $(this).attr("buttonIndex");
             var answerDemandPrice = $("#AnswerDemandPrice"+index).val();
-            var demandId = $("#DemandIdData"+index).text();
+            var demandId = $("#DemandIdData"+index).text().replace(" ", "");;
             var userId = $("#UserId"+index).text();
             
             debug(2, index+ " userId:" + userId + " demandId:" + demandId + " price:" + answerDemandPrice);
@@ -86,6 +89,10 @@ DemandsView.prototype.display = function() {
          debug(2, "AnswerDemandButton callback set!");
          $("#DemandsViewDemandsList").html(htmlDemandsList);
       });
+   }
+   else
+   {
+      displayError("Please log in...");
    }
 }
 
