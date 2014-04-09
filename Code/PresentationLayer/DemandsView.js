@@ -46,7 +46,8 @@ DemandsView.prototype.display = function() {
             currentElementArray = demandsList[i].split(",");
             var currentElement = new Demand();
             //alert(currentElementArray[0] + " " + currentElementArray[1]);
-            currentElement.setId( currentElementArray[0] );
+            currentElement.setId( currentElementArray[0].replace(" ",""));
+            debug(2,"|"+currentElementArray[0]);
             currentElement.setUser( currentElementArray[1] );
             // debug(2,"yoh");
             //alert(currentElement.getBestOffer());
@@ -63,8 +64,8 @@ DemandsView.prototype.display = function() {
          debug(2, "AnswerDemandButton callback set?");
          $(document).on('click', ".AnswerDemandButton", function(){ 
             var index = $(this).attr("buttonIndex");
-            var answerDemandPrice = $("#AnswerDemandPrice"+index).val();
-            var demandId = $("#DemandIdData"+index).text().replace(" ", "");;
+            var answerDemandPrice = $("#AnswerDemandPrice"+index).val().replace(" ","");
+            var demandId = $("#DemandIdData"+index).text().replace(" ", "");
             var userId = $("#UserId"+index).text();
             
             debug(2, index+ " userId:" + userId + " demandId:" + demandId + " price:" + answerDemandPrice);
@@ -80,6 +81,7 @@ DemandsView.prototype.display = function() {
                 },
                 success: function ( data ) {
                   debug(2, 'success!' + data);
+                  refreshView();
                 },
                 error: function () {
                   debug(2,'error');

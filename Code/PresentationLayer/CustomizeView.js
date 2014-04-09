@@ -36,6 +36,7 @@ CustomizeView.prototype.makeADemand = function() {
        },
        success: function ( data ) {
            debug(2,'success!' + data);
+           displayError("Your demand has been registered.");
        },
        error: function () {
            debug(2,'error');

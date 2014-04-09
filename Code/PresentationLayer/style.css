@@ -279,10 +279,10 @@ h3
 #ErrorWindow
 {
    position:absolute;
-   left:40%;
+   left:-40%;
    top:40%;
    width:20%;
-   height:20%;
+   height:auto;
    background-color:#FFCCCC;
    text-align:center;
 }

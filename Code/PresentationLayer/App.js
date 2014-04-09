@@ -4,6 +4,7 @@
 var debugLevel = 4;
 var businessLogicLayerUrl = "../BusinessLayer/landing.php";
 var loginWidget = null;
+var currentView = null;
 
 function debug(level, string) {
    if(debugLevel > level) {
@@ -13,17 +14,33 @@ function debug(level, string) {
 }
 
 
-
+ $('a').on('click', function () {
+        $('.left').animate({'left': '-105%'});
+        $('.right').animate({'left': '0px'});
+    });
     
 function displayError( string ) {
    $("#ErrorMessage").text( string );
    $("#ErrorWindow").show();
+   $('#ErrorWindow').animate({'left': '40%'});
+   //$('#ErrorWindow').animate({'left': '40%'});
    /*$("#ErrorWindow").animate(
    {$("#ErrorWindow").show()},
      "fast").animate(
    {$("#ErrorWindow").hide()},
       "fast");
    });*/
+}
+
+function refreshView() {
+   if(loginWidget._isConnected)
+   {
+      debug(2, "Waiting a bit");
+      //$( document ).ajaxStop(function() {
+         currentView.display();
+      //});
+      debug(2, "displaying current view " + currentView);
+   }
 }
 
 
@@ -97,7 +114,7 @@ App.prototype.main = function() {
          $("#RegisterView").hide();
          $("#DemandsView").hide();
          $("#PersonalView").hide();
-         
+         currentView = _customizeView;
          _customizeView.display();
       });
       $("#MenuElementPersonal").click( function() {
@@ -105,6 +122,7 @@ App.prototype.main = function() {
          $("#RegisterView").hide();
          $("#DemandsView").hide();
          $("#PersonalView").show();
+         currentView = _personalView;
 
          _personalView.display();
       });
@@ -113,6 +131,7 @@ App.prototype.main = function() {
          $("#RegisterView").hide();
          $("#DemandsView").hide();
          $("#PersonalView").show();
+         currentView = _personalView;
          
          _personalView.display();
       });
@@ -121,6 +140,7 @@ App.prototype.main = function() {
          $("#RegisterView").show();
          $("#DemandsView").hide();
          $("#PersonalView").hide();
+         currentView = _customizeView;
          
          _registerView.display();
       });
@@ -129,11 +149,12 @@ App.prototype.main = function() {
          $("#RegisterView").hide();
          $("#DemandsView").show();
          $("#PersonalView").hide();
+         currentView = _demandsView;
          
          _demandsView.display();
       });
       $("#ErrorMessageButton").click( function() {
-            $("#ErrorWindow").hide();
+            $('#ErrorWindow').animate({'left': '-40%'});
       });
       
       /* The default view is the CustomizeView */

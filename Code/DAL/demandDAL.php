@@ -128,7 +128,7 @@
 		$req = $bdd->prepare('SELECT COUNT(*) AS "NumberOffer"
 								FROM offer
 								WHERE DemandId = ?
-								LIMIT 1'); 
+								'); 
 		$req->execute(array($did));
 
 		while ($ret = $req->fetch())

@@ -70,6 +70,7 @@ PersonalView.prototype.display = function() {
                 },
                 success: function ( data ) {
                   debug(2, 'success!' + data);
+                  refreshView();
                 },
                 error: function () {
                   debug(2,'error');
