@@ -90,6 +90,56 @@ DemandsView.prototype.display = function() {
                 }
             });
          });
+         
+         $(document).on('click', "#SearchButton", function(){ 
+            var brand = $("#DemandsViewSearchBrand option:selected").val();
+            var type = $("#DemandsViewSearchType option:selected").val();
+            var colour = $("#DemandsViewSearchColour option:selected").val();
+            var motor = $("#DemandsViewSearchMotor option:selected").val();
+            var condition = $("#DemandsViewSearchState option:selected").val();
+            
+            //debug(2, index+ " userId:" + userId + " demandId:" + demandId + " price:" + answerDemandPrice);
+            $.ajax({
+                type: 'POST',
+                url: businessLogicLayerUrl,
+                data: {
+                  class:"Demand",
+                  method:"searchDemand",
+                  brand:brand,
+                  type:type,
+                  colour:colour,
+                  motor:motor,
+                  state:condition
+                },
+                success: function ( data ) {
+                  //debug(2, 'success!' + data);
+                  var demandsList = data.split(";");
+                  var htmlSearchDemandsList = '';
+                  var currentElementArray = null;
+                  for(var i = 0; i < demandsList.length - 1; i++) {
+                     currentElementArray = demandsList[i].split(",");
+                     if(currentElementArray[7] !== '1')
+                     {
+                        var currentElement = new Demand();
+                        currentElement.setId( currentElementArray[0].replace(" ",""));
+                        //debug(2,"|"+currentElementArray[0]);
+                        currentElement.setUser( currentElementArray[1] );
+                        htmlSearchDemandsList += '<li class="DemandsViewDemandElement"><table><tr><td>Id</td><td id="DemandIdData'+i+'">'+currentElementArray[0]+'</td><tr><td >User ID</td><td  id="UserId'+i+'">'+currentElementArray[1]+'</td></tr><tr><td>Brand</td><td>'+currentElementArray[2]+'</td></tr><tr><td>Type</td><td>'+currentElementArray[3]+'</td></tr><tr><td>Colour</td><td>'+currentElementArray[4]+'</td></tr><tr><td>Motor</td><td>'+currentElementArray[5]+'</td></tr><tr><td>State</td><td>'+currentElementArray[6]+'</td></tr><tr><td class="BestPrice">Best price</td><td id="BestPrice'+i+'">Yet unknown</td></tr></table></li><input type="text" id="AnswerDemandPrice'+i+'"/><span class="Button AnswerDemandButton" buttonIndex="'+i+'">Answer!</span>';
+                        
+                        currentElement.getBestOffer( "#BestPrice"+i );
+                        
+                        
+                     }
+                  }
+                  $("#SearchResults").html(htmlSearchDemandsList);
+                  
+                },
+                error: function () {
+                  debug(2,'error');
+                }
+            });
+         });
+         
          debug(2, "AnswerDemandButton callback set!");
          $("#DemandsViewDemandsList").html(htmlDemandsList);
       });

@@ -136,6 +136,29 @@ h3
    width:10%;
 }
 
+#DemandsViewSearch
+{
+   position:absolute;
+   top: 5%;
+   left: 52%;
+   width:46%;
+}
+
+#DemandsViewSearch form
+{
+   display: inline-block; 
+   width: 5%; 
+   text-align: right;
+}
+
+#DemandsViewNotSearch
+{
+   position:absolute;
+   top: 5%;
+   left: 2%;
+   width:46%;
+}
+
 #RegisterView label
 {
    display: inline-block; 

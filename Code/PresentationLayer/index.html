@@ -75,8 +75,8 @@
          <label>Motor</label>
          <select id="CustomizeViewMotor">
             <option value="Oil">Oil</option>
-            <option value="Oil">Gasoil</option>
-            <option value="Oil">Hybrid</option>
+            <option value="Gasoil">Gasoil</option>
+            <option value="Hybrid">Hybrid</option>
          </select>
          <br/>
          <label>State</label>
@@ -106,9 +106,59 @@
    </div>
    
    <div class="View" id="DemandsView">
-      <!--<div id="DemandsViewSearch">-->
-      <ul id="DemandsViewDemandsList">
-      </ul>
+      <div id="DemandsViewSearch">
+         <h3>Search:</h3>
+         <form action="">
+            <label>Brand</label>
+            <select id="DemandsViewSearchBrand">
+               <option value="Dongfeng">Dongfeng</option>
+               <option value="Citroen">Citroen</option>
+               <option value="Saab">Saab</option>
+               <option value="Toyota">Toyota</option>
+               <option value="Volkswagen">Volkswagen</option>
+               <option value="Ford">Ford</option>
+            </select>
+            <br/>
+            <label>Type</label>
+            <select id="DemandsViewSearchType">
+               <option value="Sedan">Sedan</option>
+               <option value="Coupe">Coupe</option>
+               <option value="Minivan">Minivan</option>
+               <option value="Sport">Sport</option>
+            </select>
+            <br/>
+            <label>Colour</label>
+            <select id="DemandsViewSearchColour">
+               <option value="Black">Black</option>
+               <option value="Blue">Blue</option>
+               <option value="Red">Red</option>
+               <option value="Green">Green</option>
+               <option value="Metal">Metal</option>
+            </select>
+            <br/>
+            <label>Motor</label>
+            <select id="DemandsViewSearchMotor">
+               <option value="Oil">Oil</option>
+               <option value="Gasoil">Gasoil</option>
+               <option value="Hybrid">Hybrid</option>
+            </select>
+            <br/>
+            <label>State</label>
+            <select id="DemandsViewSearchState">
+               <option value="New">New</option>
+               <option value="Second-hand">Second-hand</option>
+            </select>
+            <br/>
+         </form>
+         <br/>
+         <span class="Button" id="SearchButton">Search</span>
+         <ul id="SearchResults"></ul>
+      </div>
+      <div id="DemandsViewNotSearch">
+         <h3>All demands</h3>
+         <ul id="DemandsViewDemandsList">
+         </ul>
+      </div>
    </div>
    
    <div class="View" id="PersonalView">
