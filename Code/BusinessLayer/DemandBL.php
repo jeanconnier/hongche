@@ -83,6 +83,8 @@
    function secureDealBL() {
       if ( !securedDeal($_POST['demandId']) )
       {
+         $tmp = getBestOfferDAL($_POST['demandId']);
+         if ( $tmp != "noOfferYet" )
          {
             if ( setSecured($_POST['demandId']) )
             {
@@ -92,6 +94,10 @@
             {
                echo "false";
             }
+         }
+         else
+         {
+            echo "false";
          }
       }
       else

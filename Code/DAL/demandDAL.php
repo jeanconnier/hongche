@@ -278,6 +278,7 @@
 			$bret = true;
 		}
 	}
+   echo $ret['isSecured'];
 	$req->closeCursor();
 
 	return $bret;

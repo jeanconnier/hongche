@@ -53,7 +53,7 @@ PersonalView.prototype.display = function() {
          }
          
          debug(2, "SecureButton callbacks set...");
-         $(document).on('click', ".SecureButton", function(){ 
+         $(document).one('click', ".SecureButton", function(){ 
             var index = $(this).attr("buttonIndex");
             var demandId = $("#DemandIdData"+index).text().replace(" ", "");;
             
@@ -67,8 +67,14 @@ PersonalView.prototype.display = function() {
                   demandId:demandId
                 },
                 success: function ( data ) {
-                  debug(2, 'success!' + data);
-                  refreshView();
+                  if(data.replace(" ","") == "true") {
+                     displayError("Offer secured. Fee: "+$("#BestOffer"+index).text() * 0.1+"$");
+                  }
+                  else {
+                     displayError("Can\'t secure this demand (no offer yet?) " + data);
+                  }
+                  refreshView();  
+                  
                 },
                 error: function () {
                   debug(2,'error');

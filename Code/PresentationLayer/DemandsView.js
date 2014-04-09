@@ -64,7 +64,7 @@ DemandsView.prototype.display = function() {
          }
             
          debug(2, "AnswerDemandButton callback set?");
-         $(document).on('click', ".AnswerDemandButton", function(){ 
+         $(document).one('click', ".AnswerDemandButton", function(){ 
             var index = $(this).attr("buttonIndex");
             var answerDemandPrice = $("#AnswerDemandPrice"+index).val().replace(" ","");
             var demandId = $("#DemandIdData"+index).text().replace(" ", "");
