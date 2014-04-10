@@ -112,20 +112,6 @@ LoginWidget.prototype.setCallbacks = function() {
    
    debug(2, "LoginWidget callbacks set");
 }
-
-
-/*$.ajax({ type:"POST",
-              url:"landing.php",
-              data:{
-                           
-                       },
-              success:function() {
-                                                debug(2,"success");
-                                             },
-              error:function() {
-                                            debug(2,"error");
-                                        }
-            });*/
             
 /* Getters & setters */
 LoginWidget.prototype.getUser = function() {

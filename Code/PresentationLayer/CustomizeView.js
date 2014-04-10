@@ -66,9 +66,3 @@ CustomizeView.prototype.setCallbacks = function() {
    
    debug(2, "CustomizeView callbacks set");
 }
-
-
-
-
-                       
-/* Getters & setters */

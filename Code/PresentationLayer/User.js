@@ -16,18 +16,6 @@ User.prototype._id = '';
 User.prototype._password = '';
 
 /* Methods - prototype*/
-User.prototype.connect = function() {
-   
-}
-
-User.prototype.disconnect = function() {
-   
-}
-
-User.prototype.register = function() {
-
-}
-
 User.prototype.getOffers = function() {
    debug(2, "Getting "+this._id+"\'s offers...");
    var self = this;

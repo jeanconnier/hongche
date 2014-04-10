@@ -13,32 +13,18 @@ function debug(level, string) {
    }
 }
 
-
- $('a').on('click', function () {
-        $('.left').animate({'left': '-105%'});
-        $('.right').animate({'left': '0px'});
-    });
     
 function displayError( string ) {
    $("#ErrorMessage").text( string );
    $("#ErrorWindow").show();
    $('#ErrorWindow').animate({'left': '40%'});
-   //$('#ErrorWindow').animate({'left': '40%'});
-   /*$("#ErrorWindow").animate(
-   {$("#ErrorWindow").show()},
-     "fast").animate(
-   {$("#ErrorWindow").hide()},
-      "fast");
-   });*/
 }
 
 function refreshView() {
    if(loginWidget._isConnected)
    {
-      debug(2, "Waiting a bit");
-      //$( document ).ajaxStop(function() {
-         currentView.display();
-      //});
+      debug(2, "refreshing the current view");
+      currentView.display();
       debug(2, "displaying current view " + currentView);
    }
 }
@@ -74,22 +60,8 @@ $(document) .ready(function () {
 });
       
 function App() {
-/*
-   this._customizeView = new CustomizeView();
-   this._registerView = new RegisterView();
-   this._personalView = new PersonalView();
-   this._demandsView = new DemandsView();
-   */
    debug(1, "App instanciated");
 }
-
-/* Properties - prototype 
-App.prototype._customizeView = new CustomizeView();
-App.prototype._registerView = new RegisterView();
-App.prototype._personalView = new PersonalView();
-App.prototype._demandsView = new DemandsView();
-*/
-
 
 /* Methods */
 App.prototype.main = function() {
@@ -169,15 +141,3 @@ App.prototype.main = function() {
    });
    
 }
-/*
-//$(document).ready( function() {
-   var loginWidget = new LoginWidget();
-   var app = new App();
-   
-   $(document).ready( function() {
-      loginWidget.setCallbacks();
-      loginWidget.display();
-   });
-   
-   app.main();
-*/

@@ -41,7 +41,6 @@ RegisterView.prototype.registerUser = function(userId, username, password) {
                }
             }
             displayError(str);
-            //debug(2,"fronf");
        },
        error: function () {
            debug(2,'error');
@@ -57,7 +56,6 @@ RegisterView.prototype.setCallbacks = function() {
       var password = $("#RegisterViewPassword").val();
       
       self.registerUser(userId, username, password);
-      //self.display();
     });
     
     debug(2, "RegisterView callbacks set");
